@@ -27,11 +27,6 @@
     <div id="canvas-container"></div>
     <canvas id="matrix-canvas"></canvas>
     
-    <div class="language-switcher">
-        <button id="tr-btn" class="active">TR</button>
-        <button id="en-btn">EN</button>
-    </div>
-
     <div class="content">
         <header>
             <div class="logo">
@@ -39,12 +34,21 @@
                 <span class="logo-reversed">TERS</span>
                 <span class="logo-slogan" data-tr="tersin tersi" data-en="reverse of reverse">tersin tersi</span>
             </div>
+            <button class="mobile-menu-button" aria-label="Open navigation menu" aria-expanded="false">
+                <span class="hamburger-icon"></span>
+            </button>
             <nav>
                 <ul id="nav-menu">
                     <li><a href="#" class="active" data-tr="home" data-en="Home">Ana Sayfa</a></li>
                     <li><a href="#services" data-tr="services" data-en="Services">Hizmetler</a></li>
                     <li><a href="#about" data-tr="about" data-en="About">Hakkımızda</a></li>
                     <li><a href="#contact" data-tr="contact" data-en="Contact">İletişim</a></li>
+                    <li class="language-switcher-container">
+                        <div class="language-switcher">
+                            <button id="tr-btn" class="active">TR</button>
+                            <button id="en-btn">EN</button>
+                        </div>
+                    </li>
                 </ul>
             </nav>
         </header>

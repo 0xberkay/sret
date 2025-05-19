@@ -57,16 +57,14 @@ a:hover {
 
 /* Language Switcher */
 .language-switcher {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 100;
+    position: static; /* Changed from fixed to static for in-menu placement */
     display: flex;
     background: rgba(10, 10, 26, 0.7);
     border-radius: 20px;
     padding: 5px;
     border: 1px solid var(--primary-color);
     box-shadow: var(--cyber-glow);
+    margin: 10px auto; /* Center it in the mobile menu item */
 }
 
 .language-switcher button {
@@ -230,6 +228,60 @@ nav ul li a:hover::after,
 nav ul li a.active::after {
     width: 100%;
 }
+
+/* Mobile Menu Button */
+.mobile-menu-button {
+    display: none; /* Hidden by default */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001; /* Ensure it's above other elements */
+}
+
+.hamburger-icon {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--primary-color);
+    position: relative;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.hamburger-icon::before,
+.hamburger-icon::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--primary-color);
+    transition: transform 0.3s ease, top 0.3s ease, bottom 0.3s ease;
+}
+
+.hamburger-icon::before {
+    top: -8px;
+}
+
+.hamburger-icon::after {
+    bottom: -8px;
+}
+
+/* Styles for when mobile menu is open */
+.mobile-menu-button.active .hamburger-icon {
+    background-color: transparent; /* Middle bar disappears */
+}
+
+.mobile-menu-button.active .hamburger-icon::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.mobile-menu-button.active .hamburger-icon::after {
+    bottom: 0;
+    transform: rotate(-45deg);
+}
+
 
 /* Hero Section */
 #hero {
@@ -980,19 +1032,261 @@ footer::before {
 }
 
 /* Responsive adjustments */
+@media (max-width: 768px) { /* Broader tablet and mobile adjustments */
+    header {
+        justify-content: space-between; /* Ensure logo and button are spaced */
+        padding: 15px 20px; /* Adjust header padding */
+    }
+
+    .logo {
+        font-size: 2rem; /* Slightly smaller logo */
+    }
+    .logo-slogan {
+        display: none; /* Hide slogan on smaller screens for space */
+    }
+    .logo-reversed {
+        right: -85px; /* Adjust reversed logo position */
+        font-size: 2rem;
+    }
+
+    .mobile-menu-button {
+        display: block; /* Show hamburger button */
+    }
+
+    nav {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Start off-screen */
+        width: 280px; /* Width of the side menu */
+        height: 100vh;
+        background-color: rgba(10, 10, 26, 0.95); /* Dark, slightly transparent background */
+        backdrop-filter: blur(10px);
+        z-index: 1000; /* Below the button but above content */
+        transition: right 0.4s cubic-bezier(0.23, 1, 0.32, 1); /* Smooth slide-in animation */
+        padding-top: 80px; /* Space for close button or header */
+        border-left: 1px solid var(--primary-color);
+        box-shadow: -5px 0 15px rgba(0, 204, 255, 0.1);
+    }
+
+    nav.active {
+        right: 0; /* Slide in from the right */
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center; /* Center items vertically */
+        width: 100%;
+    }
+
+    nav ul li {
+        margin: 0; /* Remove horizontal margins */
+        width: 100%;
+        text-align: center;
+    }
+
+    nav ul li a {
+        display: block; /* Make links full width */
+        padding: 18px 20px;
+        font-size: 1.1rem;
+        border-bottom: 1px solid rgba(0, 204, 255, 0.1); /* Separator lines */
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    nav ul li:last-child a {
+        border-bottom: none;
+    }
+
+    nav ul li a:hover,
+    nav ul li a.active {
+        background-color: rgba(0, 204, 255, 0.1);
+        color: var(--primary-color);
+    }
+    nav ul li a::before, nav ul li a::after { /* Remove desktop underline effects */
+        display: none;
+    }
+
+    /* Specific styling for language switcher in mobile menu */
+    nav ul li.language-switcher-container {
+        padding: 10px 0; /* Add some padding around the switcher */
+        border-bottom: 1px solid rgba(0, 204, 255, 0.1);
+    }
+
+    nav ul li.language-switcher-container .language-switcher {
+        border: none; /* Remove border as it's contained now */
+        box-shadow: none; /* Remove shadow as it's contained now */
+        background: transparent; /* Make background transparent */
+        padding: 0;
+    }
+
+    nav ul li.language-switcher-container .language-switcher button {
+        font-size: 1rem; /* Match other menu items */
+        padding: 8px 15px;
+    }
+
+    section {
+        padding: 60px 15px; /* Adjusted padding for sections */
+    }
+
+    section h2 {
+        font-size: 2rem; /* Slightly smaller section titles */
+        margin-bottom: 40px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem; /* Adjust hero title size */
+    }
+
+    .hero-content h2.pill-title {
+        font-size: 1.5rem; /* Adjust pill title size */
+    }
+
+    .hero-content p {
+        font-size: 1rem; /* Adjust hero paragraph font size */
+        margin-bottom: 30px;
+    }
+
+    .cta-button {
+        padding: 10px 25px; /* Adjust CTA button padding */
+        font-size: 0.9rem;
+    }
+
+    .services-grid {
+        gap: 30px; /* Reduce gap in services grid */
+    }
+
+    .service-card {
+        padding: 25px; /* Adjust service card padding */
+    }
+
+    .service-card h3 {
+        font-size: 1.3rem; /* Adjust service card title */
+    }
+
+    .service-card-details p, .service-card-details li {
+        font-size: 0.9rem; /* Adjust service card text */
+    }
+
+    .about-text {
+        padding: 25px; /* Adjust about text padding */
+    }
+
+    .about-text p {
+        font-size: 1rem; /* Adjust about text paragraph */
+    }
+
+    .contact-info {
+        padding: 30px; /* Adjust contact info padding */
+    }
+
+    .contact-label {
+        min-width: 70px; /* Adjust contact label width */
+        font-size: 0.9rem;
+    }
+    .contact-item span { /* Ensure contact item text wraps */
+        font-size: 0.9rem;
+    }
+
+    footer {
+        padding: 20px 0;
+        font-size: 0.9rem;
+    }
+}
+
 @media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2rem; /* Further reduce hero title for small screens */
+    }
+
+    .hero-content h2.pill-title {
+        font-size: 1.2rem; /* Further reduce pill title */
+    }
+     .hero-content h2.pill-title::before, .hero-content h2.pill-title::after {
+        width: 50px; /* Adjust decorative lines */
+    }
+
+    .hero-content p {
+        font-size: 0.9rem; /* Further reduce hero paragraph */
+        padding-left: 10px;
+    }
+     .hero-content p::before {
+        width: 3px; /* Adjust decorative line */
+    }
+
+    section {
+        padding: 40px 10px; /* Further reduce section padding */
+    }
+
+    section h2 {
+        font-size: 1.8rem; /* Further reduce section titles */
+        margin-bottom: 30px;
+    }
+    section h2::after {
+        width: 80px; /* Adjust decorative line for section titles */
+        height: 2px;
+    }
+
+    .services-grid {
+        gap: 20px; /* Further reduce gap in services grid */
+    }
+
+    .service-card {
+        padding: 20px; /* Further reduce service card padding */
+    }
+    .service-icon {
+        font-size: 2rem; /* Reduce service icon size */
+        margin-bottom: 15px;
+    }
+    .service-card h3 {
+        font-size: 1.2rem; /* Further reduce service card title */
+    }
+
+    .about-content {
+        flex-direction: column; /* Stack about content */
+    }
+    .about-text {
+        padding: 20px; /* Further reduce about text padding */
+    }
+    .about-text p {
+        font-size: 0.9rem; /* Further reduce about text paragraph */
+    }
+    .about-text::before, .about-text::after { /* Adjust decorative corners */
+        width: 20px;
+        height: 20px;
+    }
+
+    .contact-content {
+        padding: 0 10px; /* Add some horizontal padding for contact form on small screens */
+    }
+    .contact-info {
+        padding: 25px; /* Further reduce contact info padding */
+    }
+    .contact-item {
+        flex-direction: column; /* Stack contact item label and value */
+        align-items: flex-start;
+    }
+    .contact-label {
+        margin-bottom: 5px; /* Add space below label when stacked */
+    }
+
+
     .morpheus-hands {
         height: 150px;
+        margin: 20px auto; /* Adjust margin */
     }
     
     .hand {
-        width: 140px;
-        height: 140px;
+        width: 120px; /* Adjusted from 140px */
+        height: 120px; /* Adjusted from 140px */
     }
     
     .pill-button {
-        min-width: 100px;
-        height: 34px;
-        font-size: 0.85rem;
+        min-width: 90px; /* Adjusted from 100px */
+        height: 32px; /* Adjusted from 34px */
+        font-size: 0.8rem; /* Adjusted from 0.85rem */
+    }
+
+    .blue-pill-message {
+        font-size: 1.2rem; /* Adjust blue pill message font size */
+        padding: 15px 20px;
     }
 }

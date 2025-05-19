@@ -908,7 +908,36 @@ document.addEventListener('DOMContentLoaded', () => {
     initLanguageSwitcher();
     initSmoothScroll();
     initPillButtons();
+    initMobileMenu(); // Added mobile menu initialization
 });
+
+// Initialize mobile menu functionality
+const initMobileMenu = () => {
+    const menuButton = document.querySelector('.mobile-menu-button');
+    const nav = document.querySelector('nav');
+    const navLinks = document.querySelectorAll('nav ul li a');
+
+    if (menuButton && nav) {
+        menuButton.addEventListener('click', () => {
+            menuButton.classList.toggle('active');
+            nav.classList.toggle('active');
+            // Toggle aria-expanded attribute for accessibility
+            const isExpanded = menuButton.getAttribute('aria-expanded') === 'true' || false;
+            menuButton.setAttribute('aria-expanded', !isExpanded);
+        });
+
+        // Close menu when a link is clicked (for single-page applications)
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (nav.classList.contains('active')) {
+                    menuButton.classList.remove('active');
+                    nav.classList.remove('active');
+                    menuButton.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+    }
+};
 
 // Initialize pill buttons functionality
 const initPillButtons = () => {
