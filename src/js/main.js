@@ -970,26 +970,226 @@ const initPillButtons = () => {
         addRippleEffect(redPill);
         addRippleEffect(bluePill);
         
-        // Red pill takes you to services with a matrix-like effect
+        // Red pill takes you to services with an advanced futuristic effect
         redPill.addEventListener('click', () => {
-            // Create matrix effect overlay
-            const overlay = document.createElement('div');
-            overlay.className = 'matrix-overlay';
-            document.body.appendChild(overlay);
+            // Create pill animation effect
+            const pillElement = redPill.cloneNode(true);
+            pillElement.style.position = 'fixed';
+            pillElement.style.zIndex = '1500';
             
-            // Matrix animation then scroll to services
+            // Get position of the original pill button
+            const pillRect = redPill.getBoundingClientRect();
+            pillElement.style.top = `${pillRect.top}px`;
+            pillElement.style.left = `${pillRect.left}px`;
+            pillElement.style.width = `${pillRect.width}px`;
+            pillElement.style.height = `${pillRect.height}px`;
+            pillElement.style.transition = 'all 1.5s cubic-bezier(0.19, 1, 0.22, 1)';
+            pillElement.style.transform = 'none';
+            
+            document.body.appendChild(pillElement);
+            
+            // Add digital particles around the pill
+            const particlesContainer = document.createElement('div');
+            particlesContainer.className = 'digital-particles';
+            document.body.appendChild(particlesContainer);
+            
+            // Generate particles
+            for (let i = 0; i < 40; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'digital-particle';
+                particle.style.left = `${pillRect.left + pillRect.width/2 + (Math.random() * 40 - 20)}px`;
+                particle.style.top = `${pillRect.top + pillRect.height/2 + (Math.random() * 40 - 20)}px`;
+                particlesContainer.appendChild(particle);
+            }
+            
+            // Animate the pill to the center and scale it up
             setTimeout(() => {
-                overlay.classList.add('active');
+                const viewportHeight = window.innerHeight;
+                const viewportWidth = window.innerWidth;
+                
+                pillElement.style.top = `${viewportHeight / 2 - pillRect.height / 2}px`;
+                pillElement.style.left = `${viewportWidth / 2 - pillRect.width / 2}px`;
+                pillElement.style.transform = 'scale(3)';
+                pillElement.classList.add('glitch-effect');
+                
+                // Create matrix effect overlay
+                const overlay = document.createElement('div');
+                overlay.className = 'matrix-overlay futuristic';
+                document.body.appendChild(overlay);
+                
+                // Add digital matrix rain background
+                const rainBackground = document.createElement('div');
+                rainBackground.className = 'matrix-rain-background';
+                document.body.appendChild(rainBackground);
+                
+                // Create Matrix-style falling characters
+                for (let i = 0; i < 30; i++) {
+                    const column = document.createElement('div');
+                    column.className = 'rain-column';
+                    column.style.left = `${Math.random() * 100}vw`;
+                    column.style.opacity = `${Math.random() * 0.5 + 0.2}`;
+                    column.style.animationDuration = `${Math.random() * 5 + 3}s`;
+                    
+                    // Add random matrix characters
+                    let columnContent = '';
+                    const chars = "10アカサタナハマヤラワイキシチニヒミリヰウクスツヌフムユルン";
+                    const columnLength = Math.floor(Math.random() * 20) + 10;
+                    for (let j = 0; j < columnLength; j++) {
+                        columnContent += chars.charAt(Math.floor(Math.random() * chars.length)) + '<br>';
+                    }
+                    column.innerHTML = columnContent;
+                    
+                    rainBackground.appendChild(column);
+                }
+                
+                // Add matrix digital glitch layer
+                const glitchLayer = document.createElement('div');
+                glitchLayer.className = 'matrix-glitch';
+                document.body.appendChild(glitchLayer);
+                
+                // Add code rain effect
+                const codeRain = document.createElement('div');
+                codeRain.className = 'code-rain';
+                overlay.appendChild(codeRain);
+                
+                // Create code characters
+                for (let i = 0; i < 50; i++) {
+                    const codeStream = document.createElement('div');
+                    codeStream.className = 'code-stream';
+                    codeStream.style.left = `${Math.random() * 100}vw`;
+                    codeStream.style.animationDuration = `${Math.random() * 3 + 2}s`;
+                    codeStream.style.animationDelay = `${Math.random() * 2}s`;
+                    codeRain.appendChild(codeStream);
+                }
+                
+                // Activate the matrix overlay with a delay
                 setTimeout(() => {
-                    servicesSection.scrollIntoView({ behavior: 'smooth' });
+                    overlay.classList.add('active');
+                    
+                    // Digital countdown animation
+                    const countdown = document.createElement('div');
+                    countdown.className = 'matrix-countdown';
+                    countdown.textContent = '3';
+                    document.body.appendChild(countdown);
+                    
                     setTimeout(() => {
-                        overlay.classList.remove('active');
+                        countdown.textContent = '2';
+                        countdown.style.animation = 'none';
+                        void countdown.offsetWidth; // Trigger reflow
+                        countdown.style.animation = 'countdown-fade 0.8s ease-out forwards';
+                        
                         setTimeout(() => {
-                            overlay.remove();
-                        }, 1000);
-                    }, 500);
-                }, 1000);
-            }, 100);
+                            countdown.textContent = '1';
+                            countdown.style.animation = 'none';
+                            void countdown.offsetWidth; // Trigger reflow
+                            countdown.style.animation = 'countdown-fade 0.8s ease-out forwards';
+                            
+                            setTimeout(() => {
+                                countdown.textContent = '0';
+                                countdown.style.animation = 'none';
+                                void countdown.offsetWidth; // Trigger reflow
+                                countdown.style.animation = 'countdown-fade 0.8s ease-out forwards';
+                                countdown.style.color = '#00ff99';
+                                countdown.style.textShadow = '0 0 20px #00ff99, 0 0 40px #00ff99';
+                                
+                                // Flash and disintegrate pill - Matrix style
+                                setTimeout(() => {
+                                    pillElement.classList.add('disintegrate');
+                                    
+                                    // Generate matrix characters for explosion
+                                    const matrixCharsContainer = document.createElement('div');
+                                    matrixCharsContainer.className = 'matrix-chars-container';
+                                    document.body.appendChild(matrixCharsContainer);
+                                    
+                                    // Create exploding matrix characters
+                                    const pillCenter = {
+                                        x: parseInt(pillElement.style.left) + parseInt(pillElement.style.width) / 2,
+                                        y: parseInt(pillElement.style.top) + parseInt(pillElement.style.height) / 2
+                                    };
+                                    
+                                    // Add matrix characters in a circular pattern
+                                    const charCount = 120; // More characters for a denser effect
+                                    const matrixChars = "10アカサタナハマヤラワイキシチニヒミリヰウクスツヌフムユルン";
+                                    
+                                    for (let i = 0; i < charCount; i++) {
+                                        const char = document.createElement('div');
+                                        char.className = 'matrix-char';
+                                        char.textContent = matrixChars.charAt(Math.floor(Math.random() * matrixChars.length));
+                                        
+                                        // Calculate position on a circle
+                                        const angle = (i / charCount) * Math.PI * 2;
+                                        const distance = Math.random() * 30 + 20; // Random distance for more natural effect
+                                        const x = pillCenter.x + Math.cos(angle) * distance;
+                                        const y = pillCenter.y + Math.sin(angle) * distance;
+                                        
+                                        char.style.left = `${x}px`;
+                                        char.style.top = `${y}px`;
+                                        char.style.animationDelay = `${Math.random() * 0.5}s`;
+                                        char.style.fontSize = `${Math.random() * 16 + 12}px`; // Various sizes
+                                        
+                                        matrixCharsContainer.appendChild(char);
+                                    }
+                                    
+                                    // Add powerful shockwave effect
+                                    const shockwave = document.createElement('div');
+                                    shockwave.className = 'shockwave';
+                                    document.body.appendChild(shockwave);
+                                    
+                                    // Add binary code pulse
+                                    const binaryPulse = document.createElement('div');
+                                    binaryPulse.className = 'binary-pulse';
+                                    document.body.appendChild(binaryPulse);
+                                    
+                                    // Add a second delayed shockwave for layered effect
+                                    setTimeout(() => {
+                                        const secondShockwave = document.createElement('div');
+                                        secondShockwave.className = 'shockwave delayed';
+                                        document.body.appendChild(secondShockwave);
+                                    }, 150);
+                                    
+                                    // Intensify the code rain
+                                    const intensifyRain = document.createElement('div');
+                                    intensifyRain.className = 'intensify-overlay';
+                                    document.body.appendChild(intensifyRain);
+                                    
+                                    // Scroll to services after effect completes
+                                    setTimeout(() => {
+                                        servicesSection.scrollIntoView({ behavior: 'smooth' });
+                                        
+                                        // Clean up effects
+                                        setTimeout(() => {
+                                            overlay.classList.add('fade-out');
+                                            rainBackground.style.opacity = '0';
+                                            rainBackground.style.transition = 'opacity 1.5s ease-out';
+                                            glitchLayer.style.opacity = '0';
+                                            glitchLayer.style.transition = 'opacity 1.5s ease-out';
+                                            
+                                            // Complete cleanup after fade out
+                                            setTimeout(() => {
+                                                pillElement.remove();
+                                                particlesContainer.remove();
+                                                matrixCharsContainer.remove();
+                                                shockwave.remove();
+                                                countdown.remove();
+                                                rainBackground.remove();
+                                                glitchLayer.remove();
+                                                
+                                                if (document.querySelector('.shockwave.delayed')) {
+                                                    document.querySelector('.shockwave.delayed').remove();
+                                                }
+                                                
+                                                binaryPulse.remove();
+                                                intensifyRain.remove();
+                                                overlay.remove();
+                                            }, 1500);
+                                        }, 1200);
+                                    }, 1200);
+                                }, 1000);
+                            }, 800);
+                        }, 500);
+                    }, 100);
+                });
+            });
         });
         
         // Blue pill triggers an Easter egg
@@ -1029,3 +1229,6 @@ const initPillButtons = () => {
         });
     }
 };
+
+
+

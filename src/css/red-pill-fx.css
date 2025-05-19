@@ -1,0 +1,360 @@
+/* Futuristic Red Pill Animation Effects */
+
+/* Enhanced matrix overlay with more futuristic effects */
+.matrix-overlay.futuristic {
+    background-color: rgba(0, 0, 0, 0.95);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1100;
+    opacity: 0;
+    transition: opacity 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+    overflow: hidden;
+}
+
+.matrix-overlay.futuristic::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(0deg, 
+            rgba(0, 255, 65, 0.1) 20%, 
+            rgba(0, 255, 0, 0.2) 50%, 
+            rgba(0, 255, 65, 0.1) 80%);
+    background-size: 100% 2px;
+    animation: matrix-scan 1.5s linear infinite;
+    opacity: 0.7;
+}
+
+.matrix-overlay.futuristic::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(0, 255, 0, 0.2) 0%, transparent 70%);
+    animation: pulse-effect 4s ease infinite;
+}
+
+.matrix-overlay.fade-out {
+    opacity: 0;
+    transition: opacity 1.5s ease-out;
+}
+
+@keyframes pulse-effect {
+    0%, 100% { transform: scale(1); opacity: 0.2; }
+    50% { transform: scale(1.5); opacity: 0.3; }
+}
+
+/* Digital particles around pill */
+.digital-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1400;
+}
+
+.digital-particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background-color: #00ff00;
+    box-shadow: 0 0 6px #00ff00, 0 0 10px #00ff00;
+    opacity: 0;
+    transform: translateZ(0);
+    animation: particle-float 3s ease-out forwards;
+}
+
+@keyframes particle-float {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    10% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(calc(var(--x, 0) * 1vw - 50vw), 
+                            calc(var(--y, 0) * 1vh - 50vh)) 
+                    scale(0);
+    }
+}
+
+/* Code rain effect */
+.code-rain {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.code-stream {
+    position: absolute;
+    top: -100px;
+    color: #00ff00;
+    font-family: 'Orbitron', monospace;
+    font-size: 16px;
+    text-shadow: 0 0 8px #00ff00;
+    opacity: 0.8;
+    text-align: center;
+    white-space: nowrap;
+    transform: translateZ(0);
+    animation: code-fall 5s linear infinite;
+}
+
+.code-stream::before {
+    content: "10110010 11001100 10100101";
+    letter-spacing: 2px;
+}
+
+@keyframes code-fall {
+    from {
+        transform: translateY(-100px);
+    }
+    to {
+        transform: translateY(calc(100vh + 200px));
+    }
+}
+
+/* Glitch effect for pill */
+.pill-button.glitch-effect {
+    animation: glitch-effect 0.8s infinite;
+}
+
+@keyframes glitch-effect {
+    0%, 100% {
+        clip-path: inset(0 0 0 0);
+        transform: scale(3);
+    }
+    5% {
+        clip-path: inset(8% 0 0 0);
+        transform: scale(3) skewX(2deg);
+    }
+    10% {
+        clip-path: inset(0 8% 0 0);
+        transform: scale(3);
+    }
+    15% {
+        clip-path: inset(0 0 5% 0);
+        transform: scale(3);
+    }
+    20% {
+        clip-path: inset(0 0 0 8%);
+        transform: scale(3) skewX(-2deg);
+    }
+    25% {
+        clip-path: inset(0 0 0 0);
+        transform: scale(3);
+    }
+}
+
+/* Pill disintegration effect */
+.pill-button.disintegrate {
+    animation: pill-disintegrate 1.2s forwards;
+    background: linear-gradient(135deg, #00ff00 0%, #00ff77 100%);
+    box-shadow: 0 0 30px rgba(0, 255, 0, 1), 0 0 50px rgba(0, 255, 0, 1);
+}
+
+@keyframes pill-disintegrate {
+    0% {
+        opacity: 1;
+        transform: scale(3);
+        filter: blur(0);
+    }
+    30% {
+        opacity: 1;
+        transform: scale(3.2);
+        filter: blur(1px);
+        box-shadow: 0 0 50px rgba(0, 255, 0, 1), 0 0 100px rgba(0, 255, 0, 0.8);
+    }
+    60% {
+        opacity: 0.7;
+        transform: scale(4);
+        filter: blur(3px);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(6);
+        filter: blur(15px);
+    }
+}
+
+/* Shockwave effect */
+.shockwave {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    background: rgba(0, 255, 0, 0.1);
+    border-radius: 50%;
+    z-index: 1300;
+    animation: shockwave 1.2s cubic-bezier(0, 0.74, 0.58, 1) forwards;
+}
+
+.shockwave.delayed {
+    animation: shockwave 1.5s cubic-bezier(0, 0.5, 0.3, 1) forwards;
+    background: rgba(0, 255, 0, 0.05);
+    animation-delay: 0.15s;
+}
+
+@keyframes shockwave {
+    0% {
+        width: 0;
+        height: 0;
+        opacity: 1;
+        border: 5px solid rgba(0, 255, 0, 0.8);
+    }
+    40% {
+        opacity: 0.8;
+    }
+    100% {
+        width: 300vw;
+        height: 300vh;
+        opacity: 0;
+        border: 2px solid rgba(0, 255, 0, 0.2);
+    }
+}
+
+/* Digital scanline effect */
+.matrix-overlay.active::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: linear-gradient(to bottom,
+        transparent 0%,
+        rgba(0, 255, 0, 0.1) 50%,
+        transparent 100%);
+    background-size: 100% 8px;
+    pointer-events: none;
+    animation: scanline 6s linear infinite;
+    z-index: 1200;
+}
+
+@keyframes scanline {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(100vh);
+    }
+}
+
+/* Matrix characters explosion effect */
+.matrix-chars-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1350;
+    perspective: 1000px;
+}
+
+.matrix-char {
+    position: absolute;
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    text-shadow: 0 0 8px #00ff00;
+    opacity: 0;
+    animation: matrix-char-explosion 2s cubic-bezier(0.215, 0.610, 0.355, 1) forwards;
+}
+
+@keyframes matrix-char-explosion {
+    0% {
+        opacity: 0;
+        transform: scale(0.5) rotate(0deg) translateZ(0);
+    }
+    10% {
+        opacity: 1;
+        transform: scale(1.2) rotate(0deg) translateZ(0);
+    }
+    40% {
+        opacity: 1;
+        transform: scale(1.5) rotate(var(--rot, 180deg)) translateZ(calc(var(--z, 0) * 100px));
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.2) rotate(var(--rot, 360deg)) translateZ(calc(var(--z, 0) * 200px));
+    }
+}
+
+/* Binary pulse effect */
+.binary-pulse {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(0, 255, 0, 0.8);
+    z-index: 1340;
+    animation: binary-pulse 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+    box-shadow: 0 0 30px rgba(0, 255, 0, 1), 0 0 60px rgba(0, 255, 0, 0.7);
+}
+
+@keyframes binary-pulse {
+    0% {
+        opacity: 1;
+        width: 50px;
+        height: 50px;
+        background: rgba(0, 255, 0, 0.9);
+    }
+    100% {
+        opacity: 0;
+        width: 300px;
+        height: 300px;
+        background: rgba(0, 255, 0, 0);
+    }
+}
+
+/* Intensify overlay effect */
+.intensify-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        circle at center,
+        transparent 30%,
+        rgba(0, 255, 0, 0.05) 60%,
+        rgba(0, 255, 0, 0.1) 80%,
+        rgba(0, 255, 0, 0.2) 100%
+    );
+    z-index: 1120;
+    pointer-events: none;
+    animation: intensify-fade 2s ease-out forwards;
+}
+
+@keyframes intensify-fade {
+    0% {
+        opacity: 0;
+    }
+    30% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}

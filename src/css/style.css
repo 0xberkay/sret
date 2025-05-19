@@ -963,20 +963,20 @@ footer::before {
 }
 
 .red-pill {
-    background: linear-gradient(135deg, #d1302c 0%, #ff4b4b 100%);
-    box-shadow: 0 0 15px rgba(255, 75, 75, 0.8), 0 0 30px rgba(209, 48, 44, 0.5);
+    background: linear-gradient(135deg, #b80000 0%, #ff005b 100%);
+    box-shadow: 0 0 15px rgba(255, 0, 91, 0.8), 0 0 30px rgba(184, 0, 0, 0.5);
     transform: none !important;
     cursor: pointer;
     transition: all 0.2s ease;
 }
 
 .red-pill:hover {
-    box-shadow: 0 0 25px rgba(255, 75, 75, 0.9), 0 0 40px rgba(209, 48, 44, 0.7);
+    box-shadow: 0 0 25px rgba(255, 0, 91, 0.9), 0 0 40px rgba(255, 0, 91, 0.7);
     transform: translateY(-3px) scale(1.05) !important;
 }
 
 .red-pill:active {
-    box-shadow: 0 0 30px rgba(255, 75, 75, 1), 0 0 50px rgba(209, 48, 44, 0.9);
+    box-shadow: 0 0 30px rgba(255, 0, 91, 1), 0 0 50px rgba(255, 0, 91, 0.9);
     transform: translateY(2px) scale(0.95) !important;
     transition: all 0.1s ease;
 }
