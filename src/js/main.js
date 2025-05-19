@@ -171,7 +171,7 @@ const initThreeJS = () => {
     const neonGrid = createNeonGrid();
     
     // Create digital rain (Matrix-style) effect
-    const createDigitalRain = () => {
+    /* const createDigitalRain = () => {
         const rainGroup = new THREE.Group();
         const characters = "０１";
         const rainCount = 100;
@@ -214,10 +214,10 @@ const initThreeJS = () => {
         return rainGroup;
     };
     
-    const digitalRain = createDigitalRain();
+    const digitalRain = createDigitalRain(); */
     
     // Create holographic projection
-    const createHologram = () => {
+    /* const createHologram = () => {
         const holoGroup = new THREE.Group();
         
         // Create base cylinder
@@ -281,11 +281,11 @@ const initThreeJS = () => {
         return { holoGroup, scanLines, base };
     };
     
-    const hologram = createHologram();
+    const hologram = createHologram(); */
     
     // Create floating platforms
-    const platforms = [];
-    const createPlatform = (x, y, z, size, color) => {
+    // const platforms = [];
+    /* const createPlatform = (x, y, z, size, color) => {
         const geometry = new THREE.BoxGeometry(size, 0.1, size);
         const material = new THREE.MeshPhongMaterial({ 
             color: color,
@@ -304,17 +304,17 @@ const initThreeJS = () => {
             initialY: y,
             speed: Math.random() * 0.005 + 0.002
         });
-    };
+    }; */
     
     // Create several platforms
-    createPlatform(-4, -1.5, -2, 2, 0x00ccff);
-    createPlatform(4, -2, -3, 3, 0xff005b);
-    createPlatform(0, -2.5, -5, 4, 0x00ccff);
-    createPlatform(-3, -1, -4, 1.5, 0xff005b);
-    createPlatform(3, -1.8, -1, 1, 0x00ccff);
+    // createPlatform(-4, -1.5, -2, 2, 0x00ccff);
+    // createPlatform(4, -2, -3, 3, 0xff005b);
+    // createPlatform(0, -2.5, -5, 4, 0x00ccff);
+    // createPlatform(-3, -1, -4, 1.5, 0xff005b);
+    // createPlatform(3, -1.8, -1, 1, 0x00ccff);
     
     // Create cyberpunk city skyline silhouette
-    const createCityscape = () => {
+    /* const createCityscape = () => {
         const cityGroup = new THREE.Group();
         const buildingCount = 15;
         const cityWidth = 30;
@@ -376,7 +376,7 @@ const initThreeJS = () => {
         return cityGroup;
     };
     
-    const cityscape = createCityscape();
+    const cityscape = createCityscape(); */
     
     // Create glowing wireframe sphere
     const sphereGeometry = new THREE.IcosahedronGeometry(15, 1);
@@ -394,7 +394,7 @@ const initThreeJS = () => {
     let textMesh = null;
     let reversedMesh = null;
     let edgesLines = null;
-    let floatingLetters = [];
+    // let floatingLetters = []; // Commented out
     let originalTextPositions = [];
     let textMaterial = null;
     let textExploded = false;
@@ -540,7 +540,7 @@ const initThreeJS = () => {
         textGroup.add(textMesh);
         
         // Break down SRET into individual letters for more control
-        const letters = ['S', 'R', 'E', 'T'];
+        /* const letters = ['S', 'R', 'E', 'T'];
         const individualLetters = [];
         let xOffset = -1.2;
         
@@ -593,7 +593,7 @@ const initThreeJS = () => {
             
             textGroup.add(letterMesh);
             individualLetters.push(letterMesh);
-        });
+        }); */
         
         // Create "TERS" text (reversed)
         const reversedText = 'TERS';
@@ -625,7 +625,7 @@ const initThreeJS = () => {
         });
         
         reversedMesh = new THREE.Mesh(reversedGeometry, reversedMaterial);
-        reversedMesh.rotation.y = Math.PI; // Flip it 180 degrees
+        // reversedMesh.rotation.y = Math.PI; // Flip it 180 degrees // COMMENTED OUT
         reversedMesh.castShadow = true;
         textGroup.add(reversedMesh);
         
@@ -641,7 +641,7 @@ const initThreeJS = () => {
         textGroup.add(edgesLines);
         
         // Create text fragments for explosion effect
-        const fragmentCount = 30;
+        /* const fragmentCount = 30;
         const fragments = [];
         
         for (let i = 0; i < fragmentCount; i++) {
@@ -692,7 +692,7 @@ const initThreeJS = () => {
             
             textGroup.add(fragment);
             fragments.push(fragment);
-        }
+        } */
         
         // Animation function for text morphing
         let morphingState = 0; // 0: normal, 1: morphing out, 2: morphed, 3: morphing in
@@ -707,10 +707,10 @@ const initThreeJS = () => {
         };
         
         // Schedule text morphing
-        setInterval(morphText, 10000);
+        // setInterval(morphText, 10000); // Commented out
         
         // Animation for floating "SRET" letters
-        const animateFloatingLetters = (time) => {
+        /* const animateFloatingLetters = (time) => {
             individualLetters.forEach((letter, index) => {
                 const userData = letter.userData;
                 
@@ -726,7 +726,7 @@ const initThreeJS = () => {
                 const pulse = 1 + Math.sin(time * 0.5 + index * 0.5) * 0.05;
                 letter.scale.set(pulse, pulse, pulse);
             });
-        };
+        }; */
         
         // Animation variables
         let time = 0;
@@ -741,9 +741,9 @@ const initThreeJS = () => {
             cameraAnimation += 0.002;
             
             // Animation for individual letters
-            if (typeof animateFloatingLetters === 'function') { // Ensure function exists
+            /* if (typeof animateFloatingLetters === 'function') { // Ensure function exists
                 animateFloatingLetters(time);
-            }
+            } */
             
             // Handle text morphing animation
             if (textMesh && reversedMesh && morphingState > 0) { // Ensure meshes exist
@@ -777,8 +777,7 @@ const initThreeJS = () => {
                     reversedMesh.material.opacity = Math.min(0.5, morphTime * 0.5);
                     
                     if (morphTime >= 1) {
-                        morphingState = 0; // Back to normal
-                        textMesh.scale.set(1, 1, 1); // Ensure full scale
+                        morphingState = 0;                        textMesh.scale.set(1, 1, 1);                        
                         reversedMesh.rotation.y = Math.PI; // Ensure correct rotation
                         reversedMesh.material.opacity = 0.5; // Ensure correct opacity
                     }
@@ -804,7 +803,28 @@ const initThreeJS = () => {
                 const pulse = 1 + Math.sin(time * 2) * 0.05; // Example pulse
                 textMesh.scale.set(pulse, pulse, pulse);
                 if (edgesLines) edgesLines.scale.set(pulse, pulse, pulse);
-                if (reversedMesh) reversedMesh.scale.set(pulse, pulse, pulse);
+                if (reversedMesh) {
+                    reversedMesh.scale.set(pulse, pulse, pulse);
+                    
+                    // Orbit and face center
+                    const orbitRadius = 1.5; // Adjust as needed
+                    const orbitSpeed = 0.3;  // Adjust as needed
+                    reversedMesh.position.x = orbitRadius * Math.cos(time * orbitSpeed);
+                    reversedMesh.position.z = orbitRadius * Math.sin(time * orbitSpeed);
+                    // reversedMesh.position.y will remain its initial value relative to textGroup (likely 0)
+
+                    // Target for lookAt: center of textGroup (0,0,0 in world, assuming textGroup is at origin),
+                    // at reversedMesh's current world Y height.
+                    let targetWorldPosition = new THREE.Vector3(0, 0, 0); 
+                    // If textGroup could move: textGroup.getWorldPosition(targetWorldPosition);
+
+                    let reversedMeshWorldPosition = new THREE.Vector3();
+                    reversedMesh.getWorldPosition(reversedMeshWorldPosition);
+                    targetWorldPosition.y = reversedMeshWorldPosition.y; // Keep it level with its current world Y
+
+                    reversedMesh.lookAt(targetWorldPosition); // Orients local -Z axis towards target
+                    reversedMesh.rotateY(Math.PI);          // Flips it so local +Z (text front) faces target
+                }
             }
 
             // Render scene
@@ -887,41 +907,96 @@ document.addEventListener('DOMContentLoaded', () => {
     initThreeJS();
     initLanguageSwitcher();
     initSmoothScroll();
+    initPillButtons();
+});
+
+// Initialize pill buttons functionality
+const initPillButtons = () => {
+    const redPill = document.querySelector('.red-pill');
+    const bluePill = document.querySelector('.blue-pill');
+    const servicesSection = document.getElementById('services');
     
-    // Add click event to CTA button
-    const learnMoreBtn = document.getElementById('learn-more');
-    if (learnMoreBtn) {
-        learnMoreBtn.addEventListener('click', () => {
-            const servicesSection = document.getElementById('services');
-            window.scrollTo({
-                top: servicesSection.offsetTop - 20,
-                behavior: 'smooth'
-            });
+    // Add ripple effect to pills
+    const addRippleEffect = (element) => {
+        element.addEventListener('mousedown', (e) => {
+            const rect = element.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const ripple = document.createElement('span');
+            ripple.className = 'pill-ripple';
+            ripple.style.left = `${x}px`;
+            ripple.style.top = `${y}px`;
+            
+            element.appendChild(ripple);
+            
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+        });
+    };
+    
+    if (redPill && bluePill) {
+        // Add ripple effect to both pills
+        addRippleEffect(redPill);
+        addRippleEffect(bluePill);
+        
+        // Red pill takes you to services with a matrix-like effect
+        redPill.addEventListener('click', () => {
+            // Create matrix effect overlay
+            const overlay = document.createElement('div');
+            overlay.className = 'matrix-overlay';
+            document.body.appendChild(overlay);
+            
+            // Matrix animation then scroll to services
+            setTimeout(() => {
+                overlay.classList.add('active');
+                setTimeout(() => {
+                    servicesSection.scrollIntoView({ behavior: 'smooth' });
+                    setTimeout(() => {
+                        overlay.classList.remove('active');
+                        setTimeout(() => {
+                            overlay.remove();
+                        }, 1000);
+                    }, 500);
+                }, 1000);
+            }, 100);
+        });
+        
+        // Blue pill triggers an Easter egg
+        bluePill.addEventListener('click', () => {
+            // Create a blue pill effect overlay
+            const overlay = document.createElement('div');
+            overlay.className = 'blue-pill-overlay';
+            document.body.appendChild(overlay);
+            
+            setTimeout(() => {
+                overlay.classList.add('active');
+                
+                // Display message
+                const message = document.createElement('div');
+                message.className = 'blue-pill-message';
+                
+                // Add language support for the message
+                const trMessage = "Matrix'e bağlantı başarısız. Gerçekliğe dönülüyor...";
+                const enMessage = "Connection to the Matrix failed. Returning to reality...";
+                
+                // Set correct language based on current language
+                const currentLang = document.documentElement.lang;
+                message.textContent = currentLang === 'en' ? enMessage : trMessage;
+                message.setAttribute('data-tr', trMessage);
+                message.setAttribute('data-en', enMessage);
+                
+                overlay.appendChild(message);
+                
+                // Remove effect after animation completes
+                setTimeout(() => {
+                    overlay.classList.remove('active');
+                    setTimeout(() => {
+                        overlay.remove();
+                    }, 1000);
+                }, 3000);
+            }, 100);
         });
     }
-    
-    // Monitor scroll to update active nav link
-    window.addEventListener('scroll', () => {
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('nav a');
-        
-        let current = '';
-        
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            
-            if (window.pageYOffset >= sectionTop - 100) {
-                current = section.getAttribute('id');
-            }
-        });
-        
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            const href = link.getAttribute('href');
-            if (href === '#' + current || (current === '' && href === '#')) {
-                link.classList.add('active');
-            }
-        });
-    });
-});
+};
