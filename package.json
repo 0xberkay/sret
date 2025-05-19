@@ -1,0 +1,31 @@
+{
+  "name": "sret-website",
+  "version": "1.0.0",
+  "description": "Futuristic website for SRET reverse engineering company",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploy": "npm run build && cp CNAME dist/ && cp public/404.html dist/ && gh-pages -d dist",
+    "deploy:actions": "git push origin main"
+  },
+  "dependencies": {
+    "three": "^0.156.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0xberkay/sret.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/0xberkay/sret/issues"
+  },
+  "homepage": "https://github.com/0xberkay/sret#readme",
+  "devDependencies": {
+    "gh-pages": "^6.3.0",
+    "vite": "^5.0.0"
+  }
+}

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a0a1a">
+    <meta name="description" content="SRET | Mobil uygulamalarda tersine mühendislik hizmetleri">
+    <meta name="keywords" content="tersine mühendislik, reverse engineering, siber güvenlik, mobil uygulama analizi">
+    <meta property="og:title" content="SRET | Tersine Mühendislik">
+    <meta property="og:description" content="Geleceğin teknolojisi ile bugünün uygulamalarını keşfedin">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sret.tr">
+    <link rel="canonical" href="https://sret.tr">
+    <link rel="manifest" href="/sret/site.webmanifest">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <title>SRET | Tersine Mühendislik</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+  <script type="module" crossorigin src="/sret/assets/main-C9SFRxnr.js"></script>
+  <link rel="stylesheet" crossorigin href="/sret/assets/main-DNDBjL3K.css">
+</head>
+<body>
+    <div id="canvas-container"></div>
+    <canvas id="matrix-canvas"></canvas>
+    
+    <div class="language-switcher">
+        <button id="tr-btn" class="active">TR</button>
+        <button id="en-btn">EN</button>
+    </div>
+
+    <div class="content">
+        <header>
+            <div class="logo">
+                <span class="logo-text">SRET</span>
+                <span class="logo-reversed">TERS</span>
+                <span class="logo-slogan" data-tr="tersin tersi" data-en="reverse of reverse">tersin tersi</span>
+            </div>
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="#" class="active" data-tr="home" data-en="Home">Ana Sayfa</a></li>
+                    <li><a href="#services" data-tr="services" data-en="Services">Hizmetler</a></li>
+                    <li><a href="#about" data-tr="about" data-en="About">Hakkımızda</a></li>
+                    <li><a href="#contact" data-tr="contact" data-en="Contact">İletişim</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section id="hero">
+                <div class="hero-content">
+                    <h1 id="hero-title" data-tr="Mobil Uygulamalarda Tersine Mühendislik" data-en="Reverse Engineering for Mobile Applications">Mobil Uygulamalarda Tersine Mühendislik</h1>
+                    <p id="hero-subtitle" data-tr="Geleceğin teknolojisi ile bugünün uygulamalarını keşfedin" data-en="Explore today's applications with tomorrow's technology">Geleceğin teknolojisi ile bugünün uygulamalarını keşfedin</p>
+                    <button class="cta-button" id="learn-more" data-tr="Daha Fazla" data-en="Learn More">Daha Fazla</button>
+                </div>
+            </section>
+
+            <section id="services">
+                <h2 id="services-title" data-tr="Hizmetlerimiz" data-en="Our Services">Hizmetlerimiz</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">📱</div>
+                        <h3 data-tr="Mobil Uygulama Analizi" data-en="Mobile App Analysis">Mobil Uygulama Analizi</h3>
+                        <p data-tr="Android ve iOS uygulamalarının derinlemesine analizi" data-en="In-depth analysis of Android and iOS applications">Android ve iOS uygulamalarının derinlemesine analizi</p>
+                        <div class="service-card-details">
+                            <p data-tr="Uygulama işlevselliğinin belirlenmesi, kullanılan teknolojilerin tespiti ve güvenlik durumunun değerlendirilmesi. Ticari uygulamaların yapısını anlamanıza yardımcı oluyoruz." 
+                               data-en="Determining application functionality, identifying technologies used, and assessing security status. We help you understand the structure of commercial applications.">
+                               Uygulama işlevselliğinin belirlenmesi, kullanılan teknolojilerin tespiti ve güvenlik durumunun değerlendirilmesi. Ticari uygulamaların yapısını anlamanıza yardımcı oluyoruz.
+                            </p>
+                            <ul>
+                                <li data-tr="API iletişiminin analizi" data-en="Analysis of API communications">API iletişiminin analizi</li>
+                                <li data-tr="Veri akışı ve depolama yöntemleri" data-en="Data flow and storage methods">Veri akışı ve depolama yöntemleri</li>
+                                <li data-tr="Kriptografi uygulamaları" data-en="Cryptography applications">Kriptografi uygulamaları</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🔐</div>
+                        <h3 data-tr="Güvenlik Değerlendirmesi" data-en="Security Assessment">Güvenlik Değerlendirmesi</h3>
+                        <p data-tr="Uygulamaların güvenlik açıklarını tespit etme" data-en="Identifying security vulnerabilities in applications">Uygulamaların güvenlik açıklarını tespit etme</p>
+                        <div class="service-card-details">
+                            <p data-tr="Veri sızıntıları, kimlik doğrulama sorunları, güvensiz API kullanımı ve diğer güvenlik açıklarını tespit ederek uygulamanızı koruyoruz. Kapsamlı raporlama ve güvenlik önerileri sunuyoruz." 
+                               data-en="We protect your application by detecting data leaks, authentication issues, insecure API usage, and other security vulnerabilities. We provide comprehensive reporting and security recommendations.">
+                               Veri sızıntıları, kimlik doğrulama sorunları, güvensiz API kullanımı ve diğer güvenlik açıklarını tespit ederek uygulamanızı koruyoruz. Kapsamlı raporlama ve güvenlik önerileri sunuyoruz.
+                            </p>
+                            <ul>
+                                <li data-tr="OWASP standartlarına göre değerlendirme" data-en="Evaluation according to OWASP standards">OWASP standartlarına göre değerlendirme</li>
+                                <li data-tr="Sızma testi ve simülasyonlar" data-en="Penetration testing and simulations">Sızma testi ve simülasyonlar</li>
+                                <li data-tr="Güvenlik açığı raporlama ve çözüm önerileri" data-en="Vulnerability reporting and solution suggestions">Güvenlik açığı raporlama ve çözüm önerileri</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🔍</div>
+                        <h3 data-tr="Kod İncelemesi" data-en="Code Review">Kod İncelemesi</h3>
+                        <p data-tr="Kaynak kodunu derinlemesine inceleme ve analiz" data-en="Deep inspection and analysis of source code">Kaynak kodunu derinlemesine inceleme ve analiz</p>
+                        <div class="service-card-details">
+                            <p data-tr="Kodunuzun kalitesini, yapısını ve güvenliğini değerlendiriyoruz. Potansiyel hataları, optimizasyon fırsatlarını ve güvenlik açıklarını tespit ediyoruz. Kompleks sistemleri daha anlaşılabilir hale getiriyoruz." 
+                               data-en="We evaluate the quality, structure, and security of your code. We identify potential bugs, optimization opportunities, and security vulnerabilities. We make complex systems more understandable.">
+                               Kodunuzun kalitesini, yapısını ve güvenliğini değerlendiriyoruz. Potansiyel hataları, optimizasyon fırsatlarını ve güvenlik açıklarını tespit ediyoruz. Kompleks sistemleri daha anlaşılabilir hale getiriyoruz.
+                            </p>
+                            <ul>
+                                <li data-tr="Antipattern ve kötü kod alışkanlıklarının tespiti" data-en="Detection of antipatterns and bad coding habits">Antipattern ve kötü kod alışkanlıklarının tespiti</li>
+                                <li data-tr="Güvenlik odaklı kod analizi" data-en="Security-focused code analysis">Güvenlik odaklı kod analizi</li>
+                                <li data-tr="Performans optimizasyonu ve öneri" data-en="Performance optimization and recommendations">Performans optimizasyonu ve öneri</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🔎</div>
+                        <h3 data-tr="Siber İstihbarat" data-en="Cyber Intelligence">Siber İstihbarat</h3>
+                        <p data-tr="Gelişmiş tehdit analizi ve güvenlik istihbaratı" data-en="Advanced threat analysis and security intelligence">Gelişmiş tehdit analizi ve güvenlik istihbaratı</p>
+                        <div class="service-card-details">
+                            <p data-tr="Siber tehdit ortamını sürekli izleyerek kurumunuza yönelik potansiyel tehditleri önceden tespit ediyoruz. Gelişmiş tehdit aktörlerinin taktiklerini ve tekniklerini analiz ederek savunma stratejinizi güçlendiriyoruz." 
+                               data-en="We continuously monitor the cyber threat landscape to detect potential threats to your organization in advance. We strengthen your defense strategy by analyzing the tactics and techniques of advanced threat actors.">
+                               Siber tehdit ortamını sürekli izleyerek kurumunuza yönelik potansiyel tehditleri önceden tespit ediyoruz. Gelişmiş tehdit aktörlerinin taktiklerini ve tekniklerini analiz ederek savunma stratejinizi güçlendiriyoruz.
+                            </p>
+                            <ul>
+                                <li data-tr="APT gruplarının takibi ve analizi" data-en="Tracking and analysis of APT groups">APT gruplarının takibi ve analizi</li>
+                                <li data-tr="Sektöre özgü tehdit istihbaratı" data-en="Industry-specific threat intelligence">Sektöre özgü tehdit istihbaratı</li>
+                                <li data-tr="Proaktif güvenlik önlemleri danışmanlığı" data-en="Proactive security measures consultancy">Proaktif güvenlik önlemleri danışmanlığı</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="about">
+                <h2 id="about-title" data-tr="Hakkımızda" data-en="About Us">Hakkımızda</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p data-tr="SRET olarak, mobil uygulamalarda tersine mühendislik konusunda uzmanlaşmış bir ekibiz. Yazılım güvenliği, performans optimizasyonu ve teknoloji danışmanlığı alanlarında hizmet veriyoruz." 
+                           data-en="At SRET, we are a team specialized in reverse engineering for mobile applications. We provide services in software security, performance optimization, and technology consulting.">
+                           SRET olarak, mobil uygulamalarda tersine mühendislik konusunda uzmanlaşmış bir ekibiz. Yazılım güvenliği, performans optimizasyonu ve teknoloji danışmanlığı alanlarında hizmet veriyoruz.
+                        </p>
+                        <p data-tr="Misyonumuz, müşterilerimize en yüksek kalitede tersine mühendislik hizmetleri sunarak teknolojik inovasyonu desteklemektir." 
+                           data-en="Our mission is to support technological innovation by providing our customers with the highest quality reverse engineering services.">
+                           Misyonumuz, müşterilerimize en yüksek kalitede tersine mühendislik hizmetleri sunarak teknolojik inovasyonu desteklemektir.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact">
+                <h2 id="contact-title" data-tr="İletişim" data-en="Contact Us">İletişim</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span class="contact-label" data-tr="E-posta:" data-en="Email:">E-posta:</span>
+                            <span><a href="mailto:hi@sret.tr">hi@sret.tr</a></span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-label" data-tr="Bionluk:" data-en="Bionluk:">Bionluk:</span>
+                            <span><a href="https://bionluk.com/byter" target="_blank" data-tr="bionluk.com/byter" data-en="bionluk.com/byter">bionluk.com/byter</a></span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 SRET. <span data-tr="Tüm Hakları Saklıdır." data-en="All Rights Reserved.">Tüm Hakları Saklıdır.</span></p>
+        </footer>
+    </div>
+
+</body>
+</html>
