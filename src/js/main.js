@@ -154,7 +154,7 @@ const initThreeJS = () => {
     };
     
     // Create text with fewer details and polygons
-    const createText = () => {
+    /*const createText = () => {
         const textGroup = new THREE.Group();
             
             const line = new THREE.Line(geometry, material);
@@ -166,7 +166,7 @@ const initThreeJS = () => {
         scene.add(gridGroup);
         
         return gridGroup;
-    };
+    };*/
     
     const neonGrid = createNeonGrid();
     
@@ -741,125 +741,84 @@ const initThreeJS = () => {
             cameraAnimation += 0.002;
             
             // Animation for individual letters
-            animateFloatingLetters(time);
+            if (typeof animateFloatingLetters === 'function') { // Ensure function exists
+                animateFloatingLetters(time);
+            }
             
             // Handle text morphing animation
-            if (morphingState > 0) {
+            if (textMesh && reversedMesh && morphingState > 0) { // Ensure meshes exist
                 morphTime += 0.01;
                 
                 if (morphingState === 1) { // Morphing out
-                    // Scale down main text
                     textMesh.scale.set(
                         Math.max(0, 1 - morphTime),
                         Math.max(0, 1 - morphTime),
                         Math.max(0, 1 - morphTime)
                     );
-                    
-                    // Rotate and fade out reversed text
                     reversedMesh.rotation.y = Math.PI + morphTime * Math.PI * 2;
                     reversedMesh.material.opacity = Math.max(0, 0.5 - morphTime * 0.5);
                     
                     if (morphTime >= 1) {
-                        morphingState = 2; // Fully morphed out
-                        morphTime = 0;
-                        
-                        // Reset text to different state
-                        textMesh.visible = false;
-                        
-                        // Make fragments appear
-                        fragments.forEach(fragment => {
-                            fragment.visible = true;
-                            fragment.material.opacity = fragment.userData.targetOpacity;
-                        });
-                    }
-                } else if (morphingState === 2) { // Stay morphed for a while
-                    // Animate fragments
-                    fragments.forEach(fragment => {
-                        fragment.rotation.x += fragment.userData.rotationSpeed;
-                        fragment.rotation.y += fragment.userData.rotationSpeed;
-                        fragment.position.x += Math.sin(time * fragment.userData.speed) * 0.01;
-                        fragment.position.y += Math.cos(time * fragment.userData.speed) * 0.01;
-                    });
-                    
-                    if (morphTime >= 3) {
-                        morphingState = 3; // Start morphing back
+                        morphingState = 2;                        
                         morphTime = 0;
                     }
-                } else if (morphingState === 3) { // Morphing back in
-                    // Hide fragments
-                    fragments.forEach(fragment => {
-                        fragment.material.opacity = Math.max(0, fragment.userData.targetOpacity - morphTime * fragment.userData.targetOpacity);
-                    });
-                    
-                    // Bring back main text
-                    textMesh.visible = true;
+                } else if (morphingState === 2) { // Morphed state (example: pause)
+                    if (morphTime >= 1.0) { // Stay morphed for 1 unit of time
+                        morphingState = 3; // Transition to morphing in
+                        morphTime = 0;
+                    }
+                } else if (morphingState === 3) { // Morphing in (restoring)
                     textMesh.scale.set(
                         Math.min(1, morphTime),
                         Math.min(1, morphTime),
                         Math.min(1, morphTime)
                     );
-                    
-                    // Bring back reversed text
-                    reversedMesh.rotation.y = Math.PI + (1 - morphTime) * Math.PI * 2;
+                    reversedMesh.rotation.y = Math.PI - morphTime * Math.PI * 2; // Reverse the rotation
                     reversedMesh.material.opacity = Math.min(0.5, morphTime * 0.5);
                     
                     if (morphTime >= 1) {
                         morphingState = 0; // Back to normal
-                        
-                        // Reset fragments
-                        fragments.forEach(fragment => {
-                            fragment.visible = false;
-                            fragment.position.set(
-                                (Math.random() - 0.5) * 5,
-                                (Math.random() - 0.5) * 5,
-                                (Math.random() - 0.5) * 5
-                            );
-                            fragment.rotation.set(
-                                Math.random() * Math.PI * 2,
-                                Math.random() * Math.PI * 2,
-                                Math.random() * Math.PI * 2
-                            );
-                        });
+                        textMesh.scale.set(1, 1, 1); // Ensure full scale
+                        reversedMesh.rotation.y = Math.PI; // Ensure correct rotation
+                        reversedMesh.material.opacity = 0.5; // Ensure correct opacity
                     }
                 }
             }
             
             // Smooth mouse movement
-            mouseEasing.x += (targetMouse.x - mouseEasing.x) * 0.05;
-            mouseEasing.y += (targetMouse.y - mouseEasing.y) * 0.05;
+            mouseEasing.x += (mouse.x - mouseEasing.x) * 0.05; // Use 'mouse' which is updated
+            mouseEasing.y += (mouse.y - mouseEasing.y) * 0.05;
             
             // Camera movement - gentle floating and responsive to mouse
             camera.position.x = Math.sin(cameraAnimation) * 0.5 + mouseEasing.x * 2;
             camera.position.y = Math.cos(cameraAnimation) * 0.5 + mouseEasing.y * 1;
-            camera.lookAt(textGroup.position);
             
-            // Main text animation
-            if (morphingState === 0 && !textExploded) {
-                // 3D wave effect on main text
-                textMesh.rotation.x = Math.sin(time * 0.2) * 0.1;
-                textMesh.rotation.y = Math.sin(time * 0.5) * 0.3;
-                textMesh.position.y = Math.sin(time * 0.3) * 0.2;
-                
-                // Create pulse effect
-                const pulse = 1 + Math.sin(time) * 0.05;
-                textMesh.scale.set(pulse, pulse, pulse);
-                
-                // Animate reversed text with offset
-                reversedMesh.rotation.y = Math.PI + Math.sin(time * 0.5 + 1) * 0.3;
-                reversedMesh.rotation.x = Math.sin(time * 0.3 + 0.5) * 0.1;
-                reversedMesh.position.y = Math.sin(time * 0.3 + Math.PI) * 0.2;
-                
-                // Animate edge lines
-                edgesLines.rotation.copy(textMesh.rotation);
-                edgesLines.position.copy(textMesh.position);
+            if (textGroup && textGroup.children.length > 0) { // Ensure textGroup is initialized and has content
+                camera.lookAt(textGroup.position);
+            } else {
+                camera.lookAt(scene.position); // Fallback to scene center
             }
             
-            // Render with post-processing
-            composer.render();
-        }
+            // Main text animation (pulsing if not morphing and not exploded)
+            if (textMesh && morphingState === 0 && !textExploded) {
+                const pulse = 1 + Math.sin(time * 2) * 0.05; // Example pulse
+                textMesh.scale.set(pulse, pulse, pulse);
+                if (edgesLines) edgesLines.scale.set(pulse, pulse, pulse);
+                if (reversedMesh) reversedMesh.scale.set(pulse, pulse, pulse);
+            }
+
+            // Render scene
+            if (composer) {
+                composer.render();
+            } else {
+                renderer.render(scene, camera);
+            }
+            
+        } // Closes animate()
         
-        animate();
-    });
+        animate(); // Starts the animation loop
+    }); // Closes loader.load callback
+}; // Closes initThreeJS function
 
 
 // Language Switching
@@ -965,4 +924,4 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-}); 
+});
