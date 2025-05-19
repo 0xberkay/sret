@@ -17,7 +17,15 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'src/index.html')
+      },
+      output: {
+        manualChunks(id) {
+          if (id.includes('three')) {
+            return 'three';
+          }
+        }
       }
-    }
+    },
+    chunkSizeWarningLimit: 600 // Optional: Adjust if needed after chunking
   }
 });
