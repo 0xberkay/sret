@@ -1370,7 +1370,19 @@ footer::before {
 }
 
 /* Responsive adjustments */
-@media (max-width: 768px) { /* Broader tablet and mobile adjustments */
+@media (max-width: 768px) {
+    html, body, .content, section {
+        overflow-x: hidden !important;
+    }
+    section {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: flex-start;
+    }
+    section h2 {
+        outline: 2px dashed red !important; /* DEBUG: Remove after testing */
+    }
     header {
         justify-content: space-between; /* Ensure logo and button are spaced */
         padding: 15px 20px; /* Adjust header padding */
@@ -1463,11 +1475,33 @@ footer::before {
 
     section {
         padding: 60px 15px; /* Adjusted padding for sections */
+        width: 100% !important;
+        box-sizing: border-box !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    .content {
+        width: 100% !important;
+        box-sizing: border-box !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
     }
 
     section h2 {
         font-size: 2rem; /* Slightly smaller section titles */
         margin-bottom: 40px;
+        text-align: center !important;
+        width: 100% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        display: block !important;
+    }
+
+    section h2::after {
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        margin-left: 0 !important;
     }
 
     .hero-content h1 {
