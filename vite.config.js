@@ -5,7 +5,7 @@ export default defineConfig({
   root: 'src',
   publicDir: '../public',
   // Use the repository name as base when deployed to GitHub Pages
-  base: '/sret/',
+  base: './', // Changed from '/sret/' to './'
   server: {
     open: true,
     port: 3000
@@ -20,4 +20,4 @@ export default defineConfig({
       }
     }
   }
-}); 
+});
