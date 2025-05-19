@@ -1380,9 +1380,7 @@ footer::before {
         align-items: center !important;
         justify-content: flex-start;
     }
-    section h2 {
-        outline: 2px dashed red !important; /* DEBUG: Remove after testing */
-    }
+
     header {
         justify-content: space-between; /* Ensure logo and button are spaced */
         padding: 15px 20px; /* Adjust header padding */
