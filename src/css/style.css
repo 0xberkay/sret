@@ -1562,6 +1562,19 @@ footer::before {
         padding: 20px 0;
         font-size: 0.9rem;
     }
+
+    #hero-title, #hero-subtitle {
+        animation: none !important;
+        text-shadow: none !important;
+        font-size: clamp(1.1rem, 5vw, 2.2rem) !important;
+        word-break: break-word !important;
+        hyphens: auto !important;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+        line-height: 1.2 !important;
+        white-space: normal !important;
+        overflow-wrap: break-word !important;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1660,5 +1673,11 @@ footer::before {
     .blue-pill-message {
         font-size: 1.2rem; /* Adjust blue pill message font size */
         padding: 15px 20px;
+    }
+
+    #hero-title, #hero-subtitle {
+        font-size: clamp(1rem, 7vw, 1.4rem) !important;
+        padding-left: 8px !important;
+        padding-right: 8px !important;
     }
 }
