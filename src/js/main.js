@@ -860,7 +860,7 @@ const initThreeJS = () => {
         
         animate();
     });
-}
+
 
 // Language Switching
 const initLanguageSwitcher = () => {
