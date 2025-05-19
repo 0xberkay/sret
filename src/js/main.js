@@ -902,9 +902,20 @@ const initSmoothScroll = () => {
     });
 };
 
+// Utility function to detect mobile devices
+function isMobile() {
+    return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
+}
+
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    initThreeJS();
+    if (!isMobile()) {
+        initThreeJS();
+    } else {
+        // Hide the canvas container on mobile for performance
+        const canvasContainer = document.getElementById('canvas-container');
+        if (canvasContainer) canvasContainer.style.display = 'none';
+    }
     initLanguageSwitcher();
     initSmoothScroll();
     initPillButtons();
