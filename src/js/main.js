@@ -976,6 +976,72 @@ const initPillButtons = () => {
         });
     };
     
+    // Variable to store currently playing audio
+    let currentAudio = null;
+    let currentFadeInterval = null;
+    
+    // Function to play random audio from the audio directory
+    const playRandomAudio = () => {
+        // Stop any currently playing audio
+        if (currentAudio) {
+            currentAudio.pause();
+            currentAudio.currentTime = 0;
+            currentAudio = null;
+        }
+        
+        // Clear any ongoing fade interval
+        if (currentFadeInterval) {
+            clearInterval(currentFadeInterval);
+            currentFadeInterval = null;
+        }
+        
+        const audioFiles = [
+            'S-R-E-T — karanlığı çözer (1).mp3',
+            'S-R-E-T — karanlığı çözer.mp3',
+            'S-R-E-T — sessiz iz sürer (1).mp3',
+            'S-R-E-T — sessiz iz sürer.mp3'
+        ];
+        
+        // Select a random audio file
+        const randomIndex = Math.floor(Math.random() * audioFiles.length);
+        const selectedAudio = audioFiles[randomIndex];
+        
+        // Create and play the audio
+        const audio = new Audio(`audio/${selectedAudio}`);
+        currentAudio = audio; // Store reference to current audio
+        
+        // Start with volume 0 for fade-in effect
+        audio.volume = 0;
+        
+        // Play the audio with error handling
+        audio.play().catch(error => {
+            console.log('Audio playback failed:', error);
+        });
+        
+        // Fade in the audio
+        let currentVolume = 0;
+        currentFadeInterval = setInterval(() => {
+            if (currentVolume < 0.7) {
+                currentVolume += 0.05;
+                audio.volume = Math.min(currentVolume, 0.7);
+            } else {
+                clearInterval(currentFadeInterval);
+                currentFadeInterval = null;
+            }
+        }, 50);
+        
+        // Clean up when audio ends
+        audio.addEventListener('ended', () => {
+            currentAudio = null;
+            if (currentFadeInterval) {
+                clearInterval(currentFadeInterval);
+                currentFadeInterval = null;
+            }
+        });
+        
+        return audio;
+    };
+
     if (redPill && bluePill) {
         // Add ripple effect to both pills
         addRippleEffect(redPill);
@@ -983,6 +1049,8 @@ const initPillButtons = () => {
         
         // Red pill takes you to services with an advanced futuristic effect
         redPill.addEventListener('click', () => {
+            // Play random audio when red pill is clicked
+            playRandomAudio();
             // Create pill animation effect
             const pillElement = redPill.cloneNode(true);
             pillElement.style.position = 'fixed';
