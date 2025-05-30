@@ -1,0 +1,49 @@
+{
+  "posts": [
+    {
+      "id": "android-reverse-engineering-basics",
+      "title": "Android Uygulamalarında Tersine Mühendislik Temelleri",
+      "excerpt": "Bu yazıda Android uygulamalarının yapısını ve tersine mühendislik sürecinde kullanılan temel araçları inceliyoruz.",
+      "date": "2023-11-15",
+      "image": "./blog/images/android-reverse.jpg",
+      "tags": ["android", "reverse", "security"],
+      "markdown_file": "android-reverse-engineering-basics.md"
+    },
+    {
+      "id": "ios-app-security",
+      "title": "iOS Uygulamalarında Güvenlik Açıkları ve Önlemler",
+      "excerpt": "iOS uygulamalarında sık karşılaşılan güvenlik açıkları ve geliştiricilerin alması gereken önlemler.",
+      "date": "2023-10-28",
+      "image": "./blog/images/ios-security.jpg",
+      "tags": ["ios", "security"],
+      "markdown_file": "ios-app-security.md"
+    },
+    {
+      "id": "mobile-api-protection",
+      "title": "Mobil Uygulamalarda API Koruması",
+      "excerpt": "Mobil uygulamalarınızın API'lerini tersine mühendislik saldırılarından nasıl koruyabilirsiniz?",
+      "date": "2023-09-12",
+      "image": "./blog/images/api-protection.jpg",
+      "tags": ["android", "ios", "security", "api"],
+      "markdown_file": "mobile-api-protection.md"
+    },
+    {
+      "id": "obfuscation-techniques",
+      "title": "Kod Karıştırma Teknikleri ve Etkinliği",
+      "excerpt": "Mobil uygulamalarda kullanılan kod karıştırma (obfuscation) teknikleri ne kadar etkili ve nasıl aşılabilir?",
+      "date": "2023-08-05",
+      "image": "./blog/images/obfuscation.jpg",
+      "tags": ["android", "ios", "security", "reverse"],
+      "markdown_file": "obfuscation-techniques.md"
+    },
+    {
+      "id": "binary-analysis-tools",
+      "title": "Mobil Uygulama Binary Analiz Araçları",
+      "excerpt": "Mobil uygulamaların binary analizi için kullanılan en güncel ve etkili araçlar.",
+      "date": "2023-07-20",
+      "image": "./blog/images/binary-analysis.jpg",
+      "tags": ["android", "ios", "tools", "reverse"],
+      "markdown_file": "binary-analysis-tools.md"
+    }
+  ]
+} 

@@ -1,0 +1,167 @@
+/**
+ * Matrix Static Theme
+ * Provides a matrix-style theme without animations
+ */
+
+body {
+    background-color: #0a0a1a;
+    color: #00ffaa;
+    font-family: 'Roboto Mono', monospace;
+}
+
+/* Matrix-style overlay for background */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(0, 255, 170, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 170, 0.03) 1px, transparent 1px);
+    background-size: 20px 20px;
+    background-position: center center;
+    z-index: -1;
+}
+
+/* Matrix-style glow for headings */
+h1, h2, h3, h4, h5, h6 {
+    color: #00ffaa;
+    text-shadow: 0 0 5px rgba(0, 255, 170, 0.5);
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* Matrix terminal-style containers */
+.blog-post {
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(0, 255, 170, 0.3);
+    box-shadow: 0 0 15px rgba(0, 255, 170, 0.1);
+}
+
+.blog-post-content {
+    color: #c0c0c0;
+}
+
+/* Matrix-style links */
+a {
+    color: #00ffaa;
+    text-decoration: none;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(0, 255, 170, 0.8);
+}
+
+/* Matrix-style for code blocks */
+pre[class*="language-"] {
+    border-left: 3px solid #00ffaa;
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px rgba(0, 255, 170, 0.1);
+}
+
+code[class*="language-"] {
+    text-shadow: 0 0 2px rgba(0, 255, 170, 0.3);
+}
+
+/* Matrix-style for inline code */
+:not(pre) > code {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #00ffaa;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-family: 'Roboto Mono', monospace;
+}
+
+/* Matrix-style for blockquotes */
+blockquote {
+    border-left: 3px solid #00ffaa;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 1rem;
+    margin: 1.5rem 0;
+    color: #a0a0a0;
+}
+
+/* Matrix-style for lists */
+ul li::marker {
+    color: #00ffaa;
+}
+
+ol li::marker {
+    color: #00ffaa;
+}
+
+/* Matrix-style for tags */
+.blog-card-tag {
+    background-color: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(0, 255, 170, 0.3);
+}
+
+/* Matrix-style for buttons */
+button {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #00ffaa;
+    border: 1px solid rgba(0, 255, 170, 0.5);
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    background-color: rgba(0, 255, 170, 0.2);
+    box-shadow: 0 0 10px rgba(0, 255, 170, 0.5);
+}
+
+/* Matrix-style for tables */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1.5rem 0;
+}
+
+th {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #00ffaa;
+    border: 1px solid rgba(0, 255, 170, 0.3);
+    padding: 0.8rem;
+    text-align: left;
+}
+
+td {
+    border: 1px solid rgba(0, 255, 170, 0.2);
+    padding: 0.8rem;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+tr:nth-child(even) td {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Matrix-style for images */
+img {
+    border: 1px solid rgba(0, 255, 170, 0.3);
+    box-shadow: 0 0 10px rgba(0, 255, 170, 0.2);
+    max-width: 100%;
+}
+
+/* Matrix-style for horizontal rules */
+hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 170, 0.5), transparent);
+    margin: 2rem 0;
+}
+
+/* Matrix-style footer */
+footer {
+    border-top: 1px solid rgba(0, 255, 170, 0.2);
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* Matrix-style for loading */
+.loading-spinner {
+    border: 3px solid rgba(0, 0, 0, 0.3);
+    border-top: 3px solid #00ffaa;
+    box-shadow: 0 0 10px rgba(0, 255, 170, 0.3);
+} 
