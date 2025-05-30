@@ -1,95 +1,71 @@
 # iOS Uygulamalarında Güvenlik Açıkları ve Önlemler
 
-iOS ekosisteminde uygulama güvenliği, hem kullanıcı verilerinin korunması hem de uygulama bütünlüğünün sağlanması açısından kritiktir. Bu yazıda, iOS uygulamalarında sık karşılaşılan güvenlik açıklarını ve bunlara karşı alınabilecek önlemleri ele alıyoruz.
+## Giriş
+iOS uygulamalarında güvenlik açıkları, kullanıcı verilerinin çalınmasından uygulamanın manipüle edilmesine kadar birçok riski beraberinde getirir. Günümüzde, uygulama güvenliği sadece kullanıcıların güvenini sağlamakla kalmaz, aynı zamanda yasal gereklilikleri de karşılar. Bu yazıda, iOS uygulamalarında sık karşılaşılan güvenlik açıklarını ve geliştiricilerin alması gereken önlemleri detaylı bir şekilde ele alacağız.
 
-## 1. Kod İmzalama ve Uygulama Bütünlüğü
+## Derinlemesine Teknik İnceleme
+iOS uygulamalarında güvenlik açıkları genellikle şu alanlarda ortaya çıkar:
+- **Veri Depolama**: Hassas verilerin şifrelenmeden saklanması, Keychain kullanımının eksikliği.
+- **Ağ İletişimi**: HTTP kullanımı, sertifika doğrulama eksikliği, MITM saldırılarına açık olma.
+- **Kod Koruma**: Uygulama kodunun tersine mühendisliğe açık olması, obfuscation eksikliği.
+- **Kimlik Doğrulama**: Zayıf parola politikaları, token yönetimi hataları, MFA eksikliği.
+- **Yanlış İzin Yönetimi**: Gereksiz tehlikeli izinlerin verilmesi, kullanıcı izinlerinin yanlış yönetimi.
 
-- Apple'ın **Code Signing** mekanizması, uygulamanın orijinal geliştiriciden geldiğini doğrular.
-- Uygulamayı derlerken `CODE_SIGN_IDENTITY` ve `Provisioning Profile` ayarlarını doğru yapılandırın.
-- App Store'a yüklemeden önce, manuel olarak **Payload** içindeki **embedded provisioning profile** ve **signature**'ı kontrol edin.
-
-## 2. Hassas Verilerin Korunması
-
-- **Keychain**: Kullanıcı adı, şifre, token gibi verileri saklamak için en güvenli yerdir.
-- **UserDefaults** veya dosya sistemine düz metin kaydetmeyin.
-- Gerektiğinde **CommonCrypto** veya üçüncü parti kütüphanelerle veritabanı/JSON şifreleme uygulayın.
-
-### Örnek: Keychain'e Şifreli Veri Kaydetme
+## Örnek Kod ve Uygulama
+Aşağıda, hassas verileri Keychain'de güvenli bir şekilde saklamak için örnek bir kod snippet'i bulunmaktadır:
 
 ```swift
 import Security
 
-func saveToKeychain(key: String, data: Data) -> Bool {
+func saveToKeychain(key: String, value: String) {
     let query: [String: Any] = [
-        kSecClass as String       : kSecClassGenericPassword,
-        kSecAttrAccount as String : key,
-        kSecValueData as String   : data
+        kSecClass as String: kSecClassGenericPassword,
+        kSecAttrAccount as String: key,
+        kSecValueData as String: value.data(using: .utf8)!,
+        kSecAttrAccessible as String: kSecAttrAccessibleWhenUnlocked
     ]
-    SecItemDelete(query as CFDictionary)
-    return SecItemAdd(query as CFDictionary, nil) == errSecSuccess
-}
-```
-
-## 3. Ağ Güvenliği (ATS)
-
-- iOS 9+ ile gelen **App Transport Security (ATS)** sayesinde yalnızca HTTPS çağrıları varsayılan olarak desteklenir.
-- Gerektiğinde `Info.plist` içinde istisnalar yapmayın; sunucunuzun TLS 1.2+ sertifikalarını güncel tutun.
-
-### Örnek: ATS Yapılandırması (`Info.plist`)
-
-```xml
-<key>NSAppTransportSecurity</key>
-<dict>
-    <key>NSAllowsArbitraryLoads</key>
-    <false/>
-    <key>NSExceptionDomains</key>
-    <dict>
-        <key>example.com</key>
-        <dict>
-            <key>NSIncludesSubdomains</key>
-            <true/>
-            <key>NSExceptionAllowsInsecureHTTPLoads</key>
-            <false/>
-        </dict>
-    </dict>
-</dict>
-```
-
-## 4. Jailbreak Tespiti
-
-- Jailbreak edilmiş cihazlarda sandbox atlatılabilir, Keychain verileri okunabilir.
-- Yaygın kontrol yöntemleri:
-  - `/Applications/Cydia.app` varlığı
-  - `canOpenURL(URL(string: "cydia://")!)`
-  - Sistem dosyalarına yazma testi
-
-```swift
-func isDeviceJailbroken() -> Bool {
-    let paths = ["/Applications/Cydia.app", "/usr/sbin/sshd", "/etc/apt"]
-    for path in paths {
-        if FileManager.default.fileExists(atPath: path) {
-            return true
-        }
+    
+    let status = SecItemAdd(query as CFDictionary, nil)
+    if status == errSecSuccess {
+        print("Veri Keychain'e başarıyla kaydedildi.")
+    } else {
+        print("Keychain'e kayıt hatası: \(status)")
     }
-    return false
+}
+
+func retrieveFromKeychain(key: String) -> String? {
+    let query: [String: Any] = [
+        kSecClass as String: kSecClassGenericPassword,
+        kSecAttrAccount as String: key,
+        kSecReturnData as String: true
+    ]
+    
+    var result: AnyObject?
+    let status = SecItemCopyMatching(query as CFDictionary, &result)
+    
+    if status == errSecSuccess, let data = result as? Data, let value = String(data: data, encoding: .utf8) {
+        return value
+    } else {
+        print("Keychain'den veri alınamadı: \(status)")
+        return nil
+    }
 }
 ```
 
-## 5. Sembolleri ve Kaynak Kodunu Gizleme
+## Araçlar & Kaynaklar
+- **OWASP Mobile Security Testing Guide**: iOS uygulamaları için güvenlik test rehberi.
+- **Burp Suite**: Ağ trafiği analizi ve güvenlik testleri için kullanılan bir araç.
+- **SonarQube**: Kod kalitesi ve güvenlik açıklarını tespit etmek için kullanılan bir statik analiz aracı.
+- **Apple Developer Documentation**: Keychain ve güvenlik konularında detaylı bilgi için.
 
-- **Strip Symbols**: Release derlemesinde sembolleri kaldırın (`Strip Debug Symbols During Copy`).
-- **Bitcode** kullanıyorsanız, Apple derleyici optimizasyonları ve kısmen obfuscation sağlar.
-- Özelleştirilmiş Swift/Obj-C obfuscation araçlarını değerlendirin.
-
-## 6. Kullanıcı İzinleri
-
-- **Privacy Usage Description** anahtarlarını (`NSCameraUsageDescription`, vb.) eksiksiz yazın.
-- Yalnızca gerçekten ihtiyaç duyulan izinleri isteyin, isteği kullanıcının ihtiyaç anına (runtime) ertileyin.
-
-## Sonuç
-
-iOS uygulama güvenliği, çok katmanlı bir yaklaşım gerektirir: kod imzalama, veri şifreleme, ağ güvenliği, jailbreak tespiti ve kodu karıştırma. Yukarıda önerilen yöntemleri uygulayarak, hem son kullanıcıyı hem de fikri mülkiyetinizi koruyabilirsiniz.
+## Özet & Kontrol Listesi
+- [ ] Hassas verileri Keychain'de şifreli olarak saklayın.
+- [ ] Tüm ağ iletişimini HTTPS üzerinden yapın ve sertifika pinning uygulayın.
+- [ ] Uygulama kodunu obfuscate edin ve tersine mühendisliğe karşı koruyun.
+- [ ] Güçlü kimlik doğrulama mekanizmaları kullanın ve MFA uygulayın.
+- [ ] Kullanıcı izinlerini minimum gerekli seviyede tutun ve açıkça açıklayın.
+- [ ] Düzenli güvenlik testleri yapın ve güncel güvenlik açıklarını takip edin.
 
 ---
 
-*Bu yazı eğitim amaçlıdır. iOS uygulama güvenliğini sağlarken Apple'ın resmi belgelerini ve güncel güvenlik rehberlerini takip etmeyi unutmayın.* 
+*Bu yazı eğitim amaçlıdır. iOS uygulama güvenliği hakkında daha fazla bilgi için resmi Apple belgelerini ve OWASP kaynaklarını inceleyin.* 

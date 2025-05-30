@@ -125,6 +125,96 @@
       "image": "./blog/images/android-reverse.jpg",
       "tags": ["android", "security", "best-practices", "common-mistakes"],
       "markdown_file": "common-security-mistakes.md"
+    },
+    {
+      "id": "owasp-top-10-mobile",
+      "title": "Mobil Uygulamalarda OWASP Top 10 Güvenlik Riskleri ve Korunma Yöntemleri",
+      "excerpt": "Mobil uygulamalarda en sık rastlanan OWASP Top 10 güvenlik risklerini ve bunlara karşı alınabilecek önlemleri öğreneceksiniz.",
+      "date": "2024-06-11",
+      "image": "./blog/images/owasp-mobile.jpg",
+      "tags": ["android", "ios", "security", "owasp"],
+      "markdown_file": "owasp-top-10-mobile.md"
+    },
+    {
+      "id": "threat-modeling",
+      "title": "Mobil Uygulamalarda Tehdit Modelleme: Adımlar ve Araçlar",
+      "excerpt": "Mobil uygulamanız için etkili tehdit modelleme adımlarını ve popüler araçları keşfedin.",
+      "date": "2024-06-11",
+      "image": "./blog/images/threat-modeling.jpg",
+      "tags": ["security", "threat-modeling"],
+      "markdown_file": "threat-modeling.md"
+    },
+    {
+      "id": "static-dynamic-analysis",
+      "title": "Mobil Uygulamalarda Statik ve Dinamik Analiz Yöntemleri",
+      "excerpt": "Mobil uygulamalarınızı güvenlik açıklarına karşı statik ve dinamik analiz yöntemleriyle nasıl tarayacağınıza dair rehber.",
+      "date": "2024-06-11",
+      "image": "./blog/images/analysis.jpg",
+      "tags": ["security", "analysis", "static", "dynamic"],
+      "markdown_file": "static-dynamic-analysis.md"
+    },
+    {
+      "id": "secure-configuration",
+      "title": "Mobil Uygulamalarda Güvenli Konfigürasyon ve Kod Karıştırma",
+      "excerpt": "Mobil uygulamalarınızın güvenliğini artırmak için konfigürasyon ve kod karıştırma tekniklerini öğrenin.",
+      "date": "2024-06-11",
+      "image": "./blog/images/configuration.jpg",
+      "tags": ["security", "configuration", "obfuscation"],
+      "markdown_file": "secure-configuration.md"
+    },
+    {
+      "id": "certificate-management",
+      "title": "Android ve iOS İçin Sertifika Yönetimi ve Kod İmzalama",
+      "excerpt": "Android ve iOS uygulamalarında sertifika yönetimi ve kod imzalama süreçlerini detaylıca inceleyin.",
+      "date": "2024-06-11",
+      "image": "./blog/images/certificate.jpg",
+      "tags": ["security", "certificate", "signing"],
+      "markdown_file": "certificate-management.md"
+    },
+    {
+      "id": "side-channel-attacks",
+      "title": "Mobil Uygulamalarda Side-Channel Saldırıları ve Korunma Yöntemleri",
+      "excerpt": "Mobil uygulamalarda bilgi sızıntısına yol açan side-channel saldırılarını ve korunma yöntemlerini keşfedin.",
+      "date": "2024-06-11",
+      "image": "./blog/images/side-channel.jpg",
+      "tags": ["security", "side-channel"],
+      "markdown_file": "side-channel-attacks.md"
+    },
+    {
+      "id": "update-security",
+      "title": "Mobil Uygulama Güncelleme Güvenliği: OTA ve Versiyon Kontrolü",
+      "excerpt": "Over-the-Air güncellemelerde ve versiyon kontrolünde mobil uygulama güvenliğinizi nasıl sağlayacağınızı öğrenin.",
+      "date": "2024-06-11",
+      "image": "./blog/images/update-security.jpg",
+      "tags": ["security", "update"],
+      "markdown_file": "update-security.md"
+    },
+    {
+      "id": "flutter-security",
+      "title": "Flutter ile Geliştirilen Uygulamalarda Güvenlik İpuçları",
+      "excerpt": "Flutter tabanlı mobil uygulamalarda güvenliği artırmak için pratik ipuçları ve en iyi uygulamalar.",
+      "date": "2024-06-11",
+      "image": "./blog/images/flutter-security.jpg",
+      "tags": ["flutter", "security"],
+      "markdown_file": "flutter-security.md"
+    },
+    {
+      "id": "react-native-security",
+      "title": "React Native Uygulamalarında Güvenlik ve Performans Optimizasyonu",
+      "excerpt": "React Native mobil uygulamalarında güvenlik ve performans optimizasyonu yöntemlerini keşfedin.",
+      "date": "2024-06-11",
+      "image": "./blog/images/react-native-security.jpg",
+      "tags": ["react-native", "security", "performance"],
+      "markdown_file": "react-native-security.md"
+    },
+    {
+      "id": "mobile-devsecops",
+      "title": "Mobil Güvenli Yazılım Geliştirme: DevSecOps Uygulamaları",
+      "excerpt": "Mobil uygulama geliştirme sürecinde DevSecOps uygulamalarıyla güvenliği entegre edin.",
+      "date": "2024-06-11",
+      "image": "./blog/images/devsecops.jpg",
+      "tags": ["security", "devsecops"],
+      "markdown_file": "mobile-devsecops.md"
     }
   ]
 } 
