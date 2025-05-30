@@ -109,6 +109,17 @@ document.addEventListener('DOMContentLoaded', function() {
         const card = document.createElement('div');
         card.className = 'blog-card';
         
+        // Add click event to entire card
+        card.style.cursor = 'pointer';
+        card.addEventListener('click', function(e) {
+            // Prevent following the link if clicking on a tag
+            if (e.target.classList.contains('blog-card-tag')) {
+                e.stopPropagation();
+                return;
+            }
+            window.location.href = `blog-post.html?id=${post.id}`;
+        });
+        
         // Format date
         const postDate = new Date(post.date);
         const formattedDate = postDate.toLocaleDateString('tr-TR', {
@@ -141,7 +152,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 <h3>${post.title}</h3>
                 <p>${post.excerpt}</p>
                 <div class="blog-card-tags">${tagElements}</div>
-                <a href="blog-post.html?id=${post.id}" class="blog-card-link" data-tr="Devamını Oku" data-en="Read More">Devamını Oku</a>
             </div>
         `;
         

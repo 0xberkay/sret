@@ -1,15 +1,6 @@
 {
   "posts": [
     {
-      "id": "android-reverse-engineering-basics",
-      "title": "Android Uygulamalarında Tersine Mühendislik Temelleri",
-      "excerpt": "Bu yazıda Android uygulamalarının yapısını ve tersine mühendislik sürecinde kullanılan temel araçları inceliyoruz.",
-      "date": "2023-11-15",
-      "image": "./blog/images/android-reverse.jpg",
-      "tags": ["android", "reverse", "security"],
-      "markdown_file": "android-reverse-engineering-basics.md"
-    },
-    {
       "id": "ios-app-security",
       "title": "iOS Uygulamalarında Güvenlik Açıkları ve Önlemler",
       "excerpt": "iOS uygulamalarında sık karşılaşılan güvenlik açıkları ve geliştiricilerin alması gereken önlemler.",
@@ -37,13 +28,103 @@
       "markdown_file": "obfuscation-techniques.md"
     },
     {
-      "id": "binary-analysis-tools",
-      "title": "Mobil Uygulama Binary Analiz Araçları",
-      "excerpt": "Mobil uygulamaların binary analizi için kullanılan en güncel ve etkili araçlar.",
-      "date": "2023-07-20",
+      "id": "android-security-best-practices",
+      "title": "Android Uygulamalarında Güvenlik: En İyi Uygulamalar",
+      "excerpt": "Android uygulamalarınızı daha güvenli hale getirmek için uygulayabileceğiniz en iyi güvenlik uygulamalarını (best practices) ele alıyoruz.",
+      "date": "2024-06-10",
+      "image": "./blog/images/android-reverse.jpg",
+      "tags": ["android", "security", "best-practices"],
+      "markdown_file": "android-security-best-practices.md"
+    },
+    {
+      "id": "secure-network-communication",
+      "title": "Android Uygulamalarında Güvenli Ağ İletişimi",
+      "excerpt": "Android uygulamalarında ağ iletişimini güvenli hale getirmek için alınması gereken önlemler ve en iyi uygulamalar.",
+      "date": "2024-06-10",
+      "image": "./blog/images/android-reverse.jpg",
+      "tags": ["android", "security", "network"],
+      "markdown_file": "secure-network-communication.md"
+    },
+    {
+      "id": "proguard-ve-r8-ile-kod-karistirma",
+      "title": "Android Uygulamalarında ProGuard ve R8 ile Kod Karıştırma",
+      "excerpt": "Android uygulamalarında ProGuard ve R8 ile kod karıştırma (obfuscation) teknikleri ve en iyi uygulamalar.",
+      "date": "2024-06-10",
+      "image": "./blog/images/android-reverse.jpg",
+      "tags": ["android", "security", "obfuscation"],
+      "markdown_file": "proguard-ve-r8-ile-kod-karistirma.md"
+    },
+    {
+      "id": "sensitive-data-protection",
+      "title": "Android Uygulamalarında Hassas Veri Koruma",
+      "excerpt": "Android uygulamalarında hassas verilerin korunması için en iyi uygulamalar ve pratik öneriler.",
+      "date": "2024-06-10",
+      "image": "./blog/images/android-reverse.jpg",
+      "tags": ["android", "security", "data-protection"],
+      "markdown_file": "sensitive-data-protection.md"
+    },
+    {
+      "id": "android-root-detection",
+      "title": "Android Uygulamalarında Root Tespiti ve Güvenlik Önlemleri",
+      "excerpt": "Android uygulamalarında root tespiti yapmanın yolları ve root edilmiş cihazlara karşı alınabilecek güvenlik önlemleri.",
+      "date": "2024-06-10",
+      "image": "./blog/images/android-reverse.jpg",
+      "tags": ["android", "security", "root-detection"],
+      "markdown_file": "android-root-detection.md"
+    },
+    {
+      "id": "mobile-api-security",
+      "title": "Mobil Uygulamalarda API Güvenliği",
+      "excerpt": "Mobil uygulamalarda API güvenliğini sağlamak için alınması gereken önlemler ve en iyi uygulamalar.",
+      "date": "2024-06-10",
+      "image": "./blog/images/api-protection.jpg",
+      "tags": ["android", "ios", "security", "api"],
+      "markdown_file": "mobile-api-security.md"
+    },
+    {
+      "id": "android-vulnerability-testing",
+      "title": "Android Uygulamalarında Güvenlik Açıklarını Test Etme",
+      "excerpt": "Android uygulamalarında güvenlik açıklarını test etmek için kullanılan yöntemler ve araçlar.",
+      "date": "2024-06-10",
       "image": "./blog/images/binary-analysis.jpg",
-      "tags": ["android", "ios", "tools", "reverse"],
-      "markdown_file": "binary-analysis-tools.md"
+      "tags": ["android", "security", "testing"],
+      "markdown_file": "android-vulnerability-testing.md"
+    },
+    {
+      "id": "onesignal-api-security",
+      "title": "OneSignal API Anahtarlarının Korunması ve Bildirim Güvenliği",
+      "excerpt": "OneSignal API anahtarlarının nasıl korunacağı ve bildirim sistemlerinde güvenliğin nasıl sağlanacağı.",
+      "date": "2024-06-10",
+      "image": "./blog/images/api-protection.jpg",
+      "tags": ["android", "security", "api", "onesignal", "push-notification"],
+      "markdown_file": "onesignal-api-security.md"
+    },
+    {
+      "id": "firebase-security",
+      "title": "Firebase Güvenliği: API Anahtarları ve En İyi Uygulamalar",
+      "excerpt": "Firebase kullanırken API anahtarlarının nasıl korunacağı ve Firebase hizmetlerini kullanırken dikkat edilmesi gereken güvenlik önlemleri.",
+      "date": "2024-06-10",
+      "image": "./blog/images/api-protection.jpg",
+      "tags": ["android", "ios", "security", "firebase", "api"],
+      "markdown_file": "firebase-security.md"
+    },
+    {
+      "id": "secure-session-management",
+      "title": "Android Uygulamalarında Güvenli Oturum Yönetimi",
+      "excerpt": "Android uygulamalarında güvenli oturum yönetimi için token tabanlı kimlik doğrulama ve en iyi uygulamalar.",
+      "date": "2024-06-10",
+      "image": "./blog/images/android-reverse.jpg",
+      "tags": ["android", "security", "authentication", "session-management"],
+      "markdown_file": "secure-session-management.md"
+    },
+    {
+      "id": "common-security-mistakes",
+      "title": "Android Uygulamalarında En Yaygın Güvenlik Hataları ve Önlemleri",
+      "excerpt": "Android uygulaması geliştirirken sık yapılan güvenlik hataları ve bunları önlemek için alınabilecek tedbirler.",
+      "date": "2024-06-10",
+      "image": "./blog/images/android-reverse.jpg",
+      "tags": ["android", "security", "best-practices", "common-mistakes"],
+      "markdown_file": "common-security-mistakes.md"
     }
   ]
 } 
