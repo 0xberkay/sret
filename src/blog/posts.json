@@ -1,37 +1,10 @@
 {
   "posts": [
     {
-      "id": "ios-app-security",
-      "title": "iOS Uygulamalarında Güvenlik Açıkları ve Önlemler",
-      "excerpt": "iOS uygulamalarında sık karşılaşılan güvenlik açıkları ve geliştiricilerin alması gereken önlemler.",
-      "date": "2023-10-28",
-      "image": "./blog/images/ios-security.jpg",
-      "tags": ["ios", "security"],
-      "markdown_file": "ios-app-security.md"
-    },
-    {
-      "id": "mobile-api-protection",
-      "title": "Mobil Uygulamalarda API Koruması",
-      "excerpt": "Mobil uygulamalarınızın API'lerini tersine mühendislik saldırılarından nasıl koruyabilirsiniz?",
-      "date": "2023-09-12",
-      "image": "./blog/images/api-protection.jpg",
-      "tags": ["android", "ios", "security", "api"],
-      "markdown_file": "mobile-api-protection.md"
-    },
-    {
-      "id": "obfuscation-techniques",
-      "title": "Kod Karıştırma Teknikleri ve Etkinliği",
-      "excerpt": "Mobil uygulamalarda kullanılan kod karıştırma (obfuscation) teknikleri ne kadar etkili ve nasıl aşılabilir?",
-      "date": "2023-08-05",
-      "image": "./blog/images/obfuscation.jpg",
-      "tags": ["android", "ios", "security", "reverse"],
-      "markdown_file": "obfuscation-techniques.md"
-    },
-    {
       "id": "android-security-best-practices",
       "title": "Android Uygulamalarında Güvenlik: En İyi Uygulamalar",
       "excerpt": "Android uygulamalarınızı daha güvenli hale getirmek için uygulayabileceğiniz en iyi güvenlik uygulamalarını (best practices) ele alıyoruz.",
-      "date": "2024-06-10",
+      "date": "2025-05-30",
       "image": "./blog/images/android-reverse.jpg",
       "tags": ["android", "security", "best-practices"],
       "markdown_file": "android-security-best-practices.md"
@@ -40,7 +13,7 @@
       "id": "secure-network-communication",
       "title": "Android Uygulamalarında Güvenli Ağ İletişimi",
       "excerpt": "Android uygulamalarında ağ iletişimini güvenli hale getirmek için alınması gereken önlemler ve en iyi uygulamalar.",
-      "date": "2024-06-10",
+      "date": "2025-05-30",
       "image": "./blog/images/android-reverse.jpg",
       "tags": ["android", "security", "network"],
       "markdown_file": "secure-network-communication.md"
@@ -49,7 +22,7 @@
       "id": "proguard-ve-r8-ile-kod-karistirma",
       "title": "Android Uygulamalarında ProGuard ve R8 ile Kod Karıştırma",
       "excerpt": "Android uygulamalarında ProGuard ve R8 ile kod karıştırma (obfuscation) teknikleri ve en iyi uygulamalar.",
-      "date": "2024-06-10",
+      "date": "2025-05-30",
       "image": "./blog/images/android-reverse.jpg",
       "tags": ["android", "security", "obfuscation"],
       "markdown_file": "proguard-ve-r8-ile-kod-karistirma.md"
@@ -58,7 +31,7 @@
       "id": "sensitive-data-protection",
       "title": "Android Uygulamalarında Hassas Veri Koruma",
       "excerpt": "Android uygulamalarında hassas verilerin korunması için en iyi uygulamalar ve pratik öneriler.",
-      "date": "2024-06-10",
+      "date": "2025-05-30",
       "image": "./blog/images/android-reverse.jpg",
       "tags": ["android", "security", "data-protection"],
       "markdown_file": "sensitive-data-protection.md"
@@ -67,7 +40,7 @@
       "id": "android-root-detection",
       "title": "Android Uygulamalarında Root Tespiti ve Güvenlik Önlemleri",
       "excerpt": "Android uygulamalarında root tespiti yapmanın yolları ve root edilmiş cihazlara karşı alınabilecek güvenlik önlemleri.",
-      "date": "2024-06-10",
+      "date": "2025-05-30",
       "image": "./blog/images/android-reverse.jpg",
       "tags": ["android", "security", "root-detection"],
       "markdown_file": "android-root-detection.md"
@@ -76,7 +49,7 @@
       "id": "mobile-api-security",
       "title": "Mobil Uygulamalarda API Güvenliği",
       "excerpt": "Mobil uygulamalarda API güvenliğini sağlamak için alınması gereken önlemler ve en iyi uygulamalar.",
-      "date": "2024-06-10",
+      "date": "2025-05-30",
       "image": "./blog/images/api-protection.jpg",
       "tags": ["android", "ios", "security", "api"],
       "markdown_file": "mobile-api-security.md"
@@ -85,7 +58,7 @@
       "id": "android-vulnerability-testing",
       "title": "Android Uygulamalarında Güvenlik Açıklarını Test Etme",
       "excerpt": "Android uygulamalarında güvenlik açıklarını test etmek için kullanılan yöntemler ve araçlar.",
-      "date": "2024-06-10",
+      "date": "2025-05-30",
       "image": "./blog/images/binary-analysis.jpg",
       "tags": ["android", "security", "testing"],
       "markdown_file": "android-vulnerability-testing.md"
@@ -94,25 +67,16 @@
       "id": "onesignal-api-security",
       "title": "OneSignal API Anahtarlarının Korunması ve Bildirim Güvenliği",
       "excerpt": "OneSignal API anahtarlarının nasıl korunacağı ve bildirim sistemlerinde güvenliğin nasıl sağlanacağı.",
-      "date": "2024-06-10",
+      "date": "2025-05-30",
       "image": "./blog/images/api-protection.jpg",
       "tags": ["android", "security", "api", "onesignal", "push-notification"],
       "markdown_file": "onesignal-api-security.md"
     },
     {
-      "id": "firebase-security",
-      "title": "Firebase Güvenliği: API Anahtarları ve En İyi Uygulamalar",
-      "excerpt": "Firebase kullanırken API anahtarlarının nasıl korunacağı ve Firebase hizmetlerini kullanırken dikkat edilmesi gereken güvenlik önlemleri.",
-      "date": "2024-06-10",
-      "image": "./blog/images/api-protection.jpg",
-      "tags": ["android", "ios", "security", "firebase", "api"],
-      "markdown_file": "firebase-security.md"
-    },
-    {
       "id": "secure-session-management",
       "title": "Android Uygulamalarında Güvenli Oturum Yönetimi",
       "excerpt": "Android uygulamalarında güvenli oturum yönetimi için token tabanlı kimlik doğrulama ve en iyi uygulamalar.",
-      "date": "2024-06-10",
+      "date": "2025-05-30",
       "image": "./blog/images/android-reverse.jpg",
       "tags": ["android", "security", "authentication", "session-management"],
       "markdown_file": "secure-session-management.md"
@@ -121,7 +85,7 @@
       "id": "common-security-mistakes",
       "title": "Android Uygulamalarında En Yaygın Güvenlik Hataları ve Önlemleri",
       "excerpt": "Android uygulaması geliştirirken sık yapılan güvenlik hataları ve bunları önlemek için alınabilecek tedbirler.",
-      "date": "2024-06-10",
+      "date": "2025-05-30",
       "image": "./blog/images/android-reverse.jpg",
       "tags": ["android", "security", "best-practices", "common-mistakes"],
       "markdown_file": "common-security-mistakes.md"
@@ -130,7 +94,7 @@
       "id": "owasp-top-10-mobile",
       "title": "Mobil Uygulamalarda OWASP Top 10 Güvenlik Riskleri ve Korunma Yöntemleri",
       "excerpt": "Mobil uygulamalarda en sık rastlanan OWASP Top 10 güvenlik risklerini ve bunlara karşı alınabilecek önlemleri öğreneceksiniz.",
-      "date": "2024-06-11",
+      "date": "2025-05-30",
       "image": "./blog/images/owasp-mobile.jpg",
       "tags": ["android", "ios", "security", "owasp"],
       "markdown_file": "owasp-top-10-mobile.md"
@@ -139,7 +103,7 @@
       "id": "threat-modeling",
       "title": "Mobil Uygulamalarda Tehdit Modelleme: Adımlar ve Araçlar",
       "excerpt": "Mobil uygulamanız için etkili tehdit modelleme adımlarını ve popüler araçları keşfedin.",
-      "date": "2024-06-11",
+      "date": "2025-05-30",
       "image": "./blog/images/threat-modeling.jpg",
       "tags": ["security", "threat-modeling"],
       "markdown_file": "threat-modeling.md"
@@ -148,7 +112,7 @@
       "id": "static-dynamic-analysis",
       "title": "Mobil Uygulamalarda Statik ve Dinamik Analiz Yöntemleri",
       "excerpt": "Mobil uygulamalarınızı güvenlik açıklarına karşı statik ve dinamik analiz yöntemleriyle nasıl tarayacağınıza dair rehber.",
-      "date": "2024-06-11",
+      "date": "2025-05-30",
       "image": "./blog/images/analysis.jpg",
       "tags": ["security", "analysis", "static", "dynamic"],
       "markdown_file": "static-dynamic-analysis.md"
@@ -157,7 +121,7 @@
       "id": "secure-configuration",
       "title": "Mobil Uygulamalarda Güvenli Konfigürasyon ve Kod Karıştırma",
       "excerpt": "Mobil uygulamalarınızın güvenliğini artırmak için konfigürasyon ve kod karıştırma tekniklerini öğrenin.",
-      "date": "2024-06-11",
+      "date": "2025-05-30",
       "image": "./blog/images/configuration.jpg",
       "tags": ["security", "configuration", "obfuscation"],
       "markdown_file": "secure-configuration.md"
@@ -166,7 +130,7 @@
       "id": "certificate-management",
       "title": "Android ve iOS İçin Sertifika Yönetimi ve Kod İmzalama",
       "excerpt": "Android ve iOS uygulamalarında sertifika yönetimi ve kod imzalama süreçlerini detaylıca inceleyin.",
-      "date": "2024-06-11",
+      "date": "2025-05-30",
       "image": "./blog/images/certificate.jpg",
       "tags": ["security", "certificate", "signing"],
       "markdown_file": "certificate-management.md"
@@ -175,7 +139,7 @@
       "id": "side-channel-attacks",
       "title": "Mobil Uygulamalarda Side-Channel Saldırıları ve Korunma Yöntemleri",
       "excerpt": "Mobil uygulamalarda bilgi sızıntısına yol açan side-channel saldırılarını ve korunma yöntemlerini keşfedin.",
-      "date": "2024-06-11",
+      "date": "2025-05-30",
       "image": "./blog/images/side-channel.jpg",
       "tags": ["security", "side-channel"],
       "markdown_file": "side-channel-attacks.md"
@@ -184,7 +148,7 @@
       "id": "update-security",
       "title": "Mobil Uygulama Güncelleme Güvenliği: OTA ve Versiyon Kontrolü",
       "excerpt": "Over-the-Air güncellemelerde ve versiyon kontrolünde mobil uygulama güvenliğinizi nasıl sağlayacağınızı öğrenin.",
-      "date": "2024-06-11",
+      "date": "2025-05-30",
       "image": "./blog/images/update-security.jpg",
       "tags": ["security", "update"],
       "markdown_file": "update-security.md"
@@ -193,7 +157,7 @@
       "id": "flutter-security",
       "title": "Flutter ile Geliştirilen Uygulamalarda Güvenlik İpuçları",
       "excerpt": "Flutter tabanlı mobil uygulamalarda güvenliği artırmak için pratik ipuçları ve en iyi uygulamalar.",
-      "date": "2024-06-11",
+      "date": "2025-05-30",
       "image": "./blog/images/flutter-security.jpg",
       "tags": ["flutter", "security"],
       "markdown_file": "flutter-security.md"
@@ -202,7 +166,7 @@
       "id": "react-native-security",
       "title": "React Native Uygulamalarında Güvenlik ve Performans Optimizasyonu",
       "excerpt": "React Native mobil uygulamalarında güvenlik ve performans optimizasyonu yöntemlerini keşfedin.",
-      "date": "2024-06-11",
+      "date": "2025-05-30",
       "image": "./blog/images/react-native-security.jpg",
       "tags": ["react-native", "security", "performance"],
       "markdown_file": "react-native-security.md"
@@ -211,7 +175,7 @@
       "id": "mobile-devsecops",
       "title": "Mobil Güvenli Yazılım Geliştirme: DevSecOps Uygulamaları",
       "excerpt": "Mobil uygulama geliştirme sürecinde DevSecOps uygulamalarıyla güvenliği entegre edin.",
-      "date": "2024-06-11",
+      "date": "2025-05-30",
       "image": "./blog/images/devsecops.jpg",
       "tags": ["security", "devsecops"],
       "markdown_file": "mobile-devsecops.md"
