@@ -242,6 +242,8 @@ nav ul li a {
     padding: 5px 10px;
     position: relative;
     letter-spacing: 1px;
+    color: var(--text-color);
+    transition: color 0.3s ease;
 }
 
 nav ul li a::before {
@@ -256,6 +258,12 @@ nav ul li a::before {
     transform: scaleX(0);
     transform-origin: right;
     transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    opacity: 0.15;
+}
+
+nav ul li a:hover {
+    color: var(--primary-color);
+    text-shadow: var(--cyber-glow);
 }
 
 nav ul li a:hover::before {

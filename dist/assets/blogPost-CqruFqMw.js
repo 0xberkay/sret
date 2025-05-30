@@ -1,4 +1,4 @@
-import"./main-BL5B4fk3.js";/* empty css             */import"./three--EydoAg_.js";document.addEventListener("DOMContentLoaded",function(){const c="./blog",a=document.getElementById("blog-post-container"),d=document.getElementById("related-posts-container"),g=new URLSearchParams(window.location.search).get("id");async function m(){if(!g){s("No post ID specified");return}try{a.innerHTML=`
+import"./main-DmGjC8lB.js";/* empty css             */import"./three--EydoAg_.js";document.addEventListener("DOMContentLoaded",function(){const c="./blog",a=document.getElementById("blog-post-container"),d=document.getElementById("related-posts-container"),g=new URLSearchParams(window.location.search).get("id");async function m(){if(!g){s("No post ID specified");return}try{a.innerHTML=`
                 <div class="loading-container">
                     <div class="loading-spinner"></div>
                     <p data-tr="Yükleniyor..." data-en="Loading...">Yükleniyor...</p>
