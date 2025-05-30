@@ -1,6 +1,6 @@
 # SRET Website
 
-Futuristic website for SRET reverse engineering company. Built with Vite, Three.js, and deployed to GitHub Pages.
+website for SRET
 
 ## Development
 
@@ -38,16 +38,6 @@ This will build the site and deploy it to the `gh-pages` branch of your reposito
 
 The site is configured to use the custom domain https://sret.tr. This is configured via the CNAME file.
 
-## Project Structure
-
-- `src/`: Source files
-  - `index.html`: Main HTML file
-  - `js/`: JavaScript files
-    - `main-optimized.js`: Optimized main JavaScript
-    - `matrix-new.js`: Matrix animation JavaScript
-  - `css/`: CSS files
-- `public/`: Static files that are copied directly to the build folder
-- `dist/`: Build output (not checked into git)
 
 ## License
 
