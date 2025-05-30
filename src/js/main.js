@@ -976,72 +976,6 @@ const initPillButtons = () => {
         });
     };
     
-    // Variable to store currently playing audio
-    let currentAudio = null;
-    let currentFadeInterval = null;
-    
-    // Function to play random audio from the audio directory
-    const playRandomAudio = () => {
-        // Stop any currently playing audio
-        if (currentAudio) {
-            currentAudio.pause();
-            currentAudio.currentTime = 0;
-            currentAudio = null;
-        }
-        
-        // Clear any ongoing fade interval
-        if (currentFadeInterval) {
-            clearInterval(currentFadeInterval);
-            currentFadeInterval = null;
-        }
-        
-        const audioFiles = [
-            'S-R-E-T — karanlığı çözer (1).mp3',
-            'S-R-E-T — karanlığı çözer.mp3',
-            'S-R-E-T — sessiz iz sürer (1).mp3',
-            'S-R-E-T — sessiz iz sürer.mp3'
-        ];
-        
-        // Select a random audio file
-        const randomIndex = Math.floor(Math.random() * audioFiles.length);
-        const selectedAudio = audioFiles[randomIndex];
-        
-        // Create and play the audio
-        const audio = new Audio(`audio/${selectedAudio}`);
-        currentAudio = audio; // Store reference to current audio
-        
-        // Start with volume 0 for fade-in effect
-        audio.volume = 0;
-        
-        // Play the audio with error handling
-        audio.play().catch(error => {
-            console.log('Audio playback failed:', error);
-        });
-        
-        // Fade in the audio
-        let currentVolume = 0;
-        currentFadeInterval = setInterval(() => {
-            if (currentVolume < 0.7) {
-                currentVolume += 0.05;
-                audio.volume = Math.min(currentVolume, 0.7);
-            } else {
-                clearInterval(currentFadeInterval);
-                currentFadeInterval = null;
-            }
-        }, 50);
-        
-        // Clean up when audio ends
-        audio.addEventListener('ended', () => {
-            currentAudio = null;
-            if (currentFadeInterval) {
-                clearInterval(currentFadeInterval);
-                currentFadeInterval = null;
-            }
-        });
-        
-        return audio;
-    };
-
     if (redPill && bluePill) {
         // Add ripple effect to both pills
         addRippleEffect(redPill);
@@ -1049,8 +983,6 @@ const initPillButtons = () => {
         
         // Red pill takes you to services with an advanced futuristic effect
         redPill.addEventListener('click', () => {
-            // Play random audio when red pill is clicked
-            playRandomAudio();
             // Create pill animation effect
             const pillElement = redPill.cloneNode(true);
             pillElement.style.position = 'fixed';
@@ -1308,6 +1240,62 @@ const initPillButtons = () => {
         });
     }
 };
+
+// Cookie Consent Logic
+document.addEventListener('DOMContentLoaded', () => {
+    const cookieDialog = document.getElementById('cookie-consent-dialog');
+    const acceptButton = document.getElementById('cookie-accept-btn');
+
+    // Check if consent was already given
+    if (!localStorage.getItem('cookieConsentGiven')) {
+        if (cookieDialog) {
+            cookieDialog.style.display = 'flex'; // Show the dialog
+        }
+    } else {
+        // If consent already given, ensure gtag can be used if it exists
+        if (typeof gtag === 'function') {
+            // You might want to initialize or re-initialize analytics here if needed
+            // For now, we assume gtag('config', 'YOUR_ID') in HTML is sufficient
+        }
+    }
+
+    if (acceptButton && cookieDialog) {
+        acceptButton.addEventListener('click', () => {
+            localStorage.setItem('cookieConsentGiven', 'true');
+            cookieDialog.style.display = 'none';
+            // If Google Tag exists, ensure it's configured (it should already be by the HTML script)
+            // This is more of a conceptual placement for any post-consent initializations
+            if (typeof gtag === 'function') {
+                // gtag('consent', 'update', { 'analytics_storage': 'granted' }); // If using consent mode V2
+                console.log("Cookie consent given. Analytics should be active if configured.");
+            }
+        });
+    }
+
+    // Language switcher update for cookie dialog if present
+    const updateCookieDialogLanguage = () => {
+        if (cookieDialog && cookieDialog.style.display !== 'none') {
+            const currentLang = localStorage.getItem('language') || 'tr';
+            const pElement = cookieDialog.querySelector('p');
+            const buttonElement = cookieDialog.querySelector('button');
+
+            if (pElement) {
+                pElement.textContent = pElement.getAttribute(`data-${currentLang}`);
+            }
+            if (buttonElement) {
+                buttonElement.textContent = buttonElement.getAttribute(`data-${currentLang}`);
+            }
+        }
+    };
+
+    // Update cookie dialog language on initial load (if dialog is shown)
+    if (cookieDialog && !localStorage.getItem('cookieConsentGiven')) {
+        updateCookieDialogLanguage();
+    }
+
+    // Listen for language changes to update cookie dialog
+    window.addEventListener('languageChanged', updateCookieDialogLanguage);
+});
 
 
 
