@@ -876,9 +876,11 @@ const initSmoothScroll = () => {
     
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
-            // Only prevent default if not home link
-            if (link.getAttribute('href') !== '#') {
-                e.preventDefault();
+            const href = link.getAttribute('href');
+
+            // Check if it's an internal page link (starts with #) or a full page navigation
+            if (href && href.startsWith('#')) {
+                e.preventDefault(); // Prevent default only for hash links
                 
                 // Remove active class from all links
                 navLinks.forEach(l => l.classList.remove('active'));
@@ -887,17 +889,27 @@ const initSmoothScroll = () => {
                 link.classList.add('active');
                 
                 // Get the target section
-                const targetId = link.getAttribute('href');
+                const targetId = href;
                 const targetSection = document.querySelector(targetId);
                 
                 // Scroll to target section
                 if (targetSection) {
                     window.scrollTo({
-                        top: targetSection.offsetTop - 20,
+                        top: targetSection.offsetTop - 20, // Adjusted offset for fixed header if any
                         behavior: 'smooth'
                     });
                 }
+            } else if (href && (href === 'index.html' || href === 'blog.html' || href === 'blog-post.html')) {
+                // For direct page links, just ensure active class is set correctly if on the same page
+                // and let the browser handle navigation.
+                // If the link is to the current page, we might not want to do anything or just set active class.
+                // If it's a link to another page, the browser will navigate.
+                // This part might need refinement based on whether it's a link to the current page or another page.
+                navLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+                // Allow default browser navigation for these links
             }
+            // For other types of links (e.g., external), let the browser handle them by default.
         });
     });
 };
