@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import { resolve } from 'path';
 import { copyFileSync, mkdirSync, existsSync, readdirSync, statSync, readFileSync, writeFileSync } from 'fs';
 import { join, dirname } from 'path';
+import Sitemap from 'vite-plugin-sitemap';
 
 // Function to copy directory recursively
 function copyDir(src, dest) {
@@ -60,6 +61,7 @@ export default defineConfig({
     chunkSizeWarningLimit: 600 // Optional: Adjust if needed after chunking
   },
   plugins: [
+    Sitemap({ hostname: 'https://sret.tr', generateRobotsTxt: true }),
     {
       name: 'copy-blog-content',
       closeBundle() {
